@@ -1,0 +1,78 @@
+.entrada{
+	color: green !important;
+}
+.saida{
+	color: red !important;
+}
+
+.transacoes{
+	margin-top: 15px;
+}
+.transacoes section{
+	box-shadow: 0 0 3px #000;
+	border-radius: 6px;
+
+	margin-bottom: 15px;
+	padding: 10px;
+}
+.filtrar{
+	position: sticky;
+	top: 2px;
+	background: #fff;
+}
+
+.values{
+	align-items: center;
+	align-content: space-between;
+}
+.values .seletores{
+	text-align: center;
+	margin: 0 4px 0 4px;
+}
+.values div{
+	text-align: right;
+}
+.values input,
+select{
+	border-radius: 4px;
+	border: 1px solid #000;
+}
+.values input[type="number"]{
+	width: 98%;
+}
+.values select{
+	width: 95%;
+}
+.values button{
+	color: #fff;
+}
+#tipo input{
+	margin-left: 8px;
+}
+
+#seletor-data{
+	display: grid;
+	grid-template-columns: 46% 6% 46%;
+	align-content: space-between;
+}
+#seletor-data p{
+	margin-right: 5px;
+}
+
+.top-lista div{
+	margin-top: 10px;
+	text-align: right;
+}
+.top-lista div span{
+	border: solid 2px blue;
+	border-radius: 8px;
+	
+	text-transform: capitalize;
+	padding: 8px;
+}
+
+table{
+	width: 100%;
+	text-align: unset;
+}
+
