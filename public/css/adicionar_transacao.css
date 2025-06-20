@@ -1,0 +1,83 @@
+.entrada{
+	color: green !important;
+}
+.saida{
+	color: red !important;
+}
+
+.transacoes{
+	margin-top: 15px;
+}
+.transacoes section{
+	box-shadow: 0 0 3px #000;
+	border-radius: 6px;
+
+	margin-bottom: 15px;
+	padding: 10px;
+}
+
+.resumo{
+	display: grid;
+	grid-template-columns: 30% 70%;
+    align-content: space-between;    
+}
+.resumo table{
+	text-align: center;
+}
+.periodo{
+	margin: 20px 0 0 0;
+	text-align: right;
+}
+.periodo p,
+.registrar p{
+	display: inline-block;
+}
+.periodo input{
+	text-align: center;
+	border: none;
+	background: transparent;
+}
+.periodo button{
+	padding: 2px;
+	width: 50px;
+	font-size: 1.0em;
+	border-radius: none;
+	border: 1px solid #000;
+	background: inherit;
+}
+
+.registrar form{
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-content: space-around;
+}
+.registrar p{
+	margin: 10px;
+	text-align: center;
+}
+.registrar input,
+.registrar select{
+	padding: 4px;
+	border: 1px solid #000;
+	border-radius: 4px;
+}
+.registrar .tipo-radio{
+	margin-top: 35px;
+}
+.tipo-radio label{
+	margin-left: 0;
+}
+.registrar p button{
+	color: #fff;
+	margin-top: 20px;
+}
+.lista-transacoes table{
+	margin: 0 5%;
+	width: 90%;
+}
+
+.top{
+	background: #fff;
+	position: sticky;
+	top: 2px;
+}

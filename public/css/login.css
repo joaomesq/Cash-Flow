@@ -1,0 +1,57 @@
+body{
+	background: red;
+	background: transparent url(../img/4.png) ;
+	background-size: cover;
+	background-position: top left;
+	background-attachment: fixed;
+}
+.card-welcome{
+	box-shadow: 0 0 3px #000;
+	border-radius: 6px;
+
+    height: 400px;
+	margin-top: 70px;
+}
+
+.text{
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+	background: #00346e;
+	height: 100%;
+	color: rgba(255, 255, 255, 0.9);
+}
+.text h1{
+		margin-top: 20px;
+}
+
+.action{
+	text-align: center;
+}
+.action form{
+	margin-top: 90px;
+}
+.action input,
+.action button{
+	padding: 4px;
+	border-radius: 6px;
+}
+.action input{
+	background: rgba(255, 255, 255, 0.6);
+	border: none;
+	width: 250px;
+}
+.action button{
+	border: none;
+	display: inline-block;
+	text-transform: uppercase;
+	background: #00346e;
+	color: rgba(255, 255, 255, 0.9);
+
+	width: 100px;
+
+}
+
+footer p{
+	text-align: center;
+	color: #000;
+}

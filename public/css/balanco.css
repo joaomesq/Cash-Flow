@@ -1,0 +1,154 @@
+.design-elemento{
+	box-shadow: 0 0 3px #000;
+	border-radius: 6px;
+
+	margin-bottom: 15px;
+	padding: 10px;
+}
+
+.periodo{
+	text-align: center;
+}
+
+.periodo div p{
+	display: inline-block;
+	margin: 0;
+}
+.periodo input{
+	text-align: center;
+	padding: 2px;
+	border: none;
+}
+.selecao-periodo input{
+	width: 60px;
+
+	text-transform: capitalize;
+}
+.valor-periodo input{
+	width: 140px !important;
+	border: 1px #000 solid;
+
+}
+.periodo button{
+	padding: 2px;
+	width: 50px;
+	font-size: 1.0em;
+	border-radius: none;
+	border: 0px solid #000;
+	background: inherit;
+}
+#btn-realizar-balanco{
+	border-radius: none !important;
+	padding: 5px;
+	color: #fff !important;
+	width: unset !important;
+}
+
+.conteudo{
+	margin-top: 15px;
+}
+
+.grafico p{
+	margin: 10px;
+	display: inline-block;
+}
+.grafico .figura{
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+
+	background: conic-gradient(
+		green calc(var(--percentagem) * 1%),
+		red calc(var(--percentagem) * 1%)
+	           );
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	color: #0f0;
+}
+.receitas{
+	color: #0f0 !important;
+}
+#receitas{
+	margin-left: 10px;
+}
+#receitas::before{
+	content: 'squ';
+	margin-right: 4px;
+	background: green;
+	color: transparent;
+}
+.despesas{
+	color: red !important;
+}
+#despesas::before{
+	content: 'squ';
+	margin-right: 4px;
+	background: red;
+	color: transparent;
+}
+
+.dados{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+.dados div{
+	padding: 8px;
+	margin: 5px;
+	border: 1px solid #000;
+	border-radius: 4px;
+	height: 90px;
+}
+.dados div p{
+	margin-top: 10px;
+	font-size: 1.2em;
+}
+
+.dados .saldo{
+	color: #fff;
+	border: none;
+}
+.negativo{
+	background: red;
+}
+.positivo{
+	background: green;
+}
+
+.asside{
+	height: 200px;
+	display: grid;
+	grid-template-columns: 48% 48%;
+    grid-template-areas: "entradas saidas"
+                         "total total";     
+
+}
+.asside div{
+	margin: 5px;
+}
+.asside h5{
+	text-align: center;
+}
+.asside div p{
+	width: 30px;
+	height: 30px;
+}
+.asside img{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+.n_entradas{
+	grid-area: entradas;
+}
+.n_saidas{
+	grid-area: saidas;
+}
+.total_movimentos{
+	grid-area: total;
+}
+
+.listagem .linha{
+	border-left: 1px solid #000;
+}
