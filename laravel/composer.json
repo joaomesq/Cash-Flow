@@ -1,10 +1,22 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "chanax/cash-flow",
     "type": "project",
-    "description": "Sistema de controle financeiro",
+    "description": "Sistema de controle financeiro simples",
     "keywords": ["Cash", "Flow",  "Chanax"],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "João Baptista Mesquita",
+            "email": "joaob.mesquita1@gmail.com",
+            "role": "CEO and Developer"
+        },
+        {
+            "name": "Israel Camupa",
+            "email": "cisraelmandavela@gmail.com",
+            "role": "CTO and Developer"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
