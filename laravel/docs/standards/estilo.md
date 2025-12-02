@@ -2,7 +2,7 @@
 
 ## Cores principais
 - Primária: `bg-white`, `text-dak`
-- Secundária: `bg-gray-200`, `text-gray-800`
+- Secundária: `#3976bd`, `text-white`
 - Feedback: `green-600`(sucesso), `red-600`(erro), `yellow-500`(aviso)
 
 ## Tipografia
@@ -12,6 +12,7 @@
 
 ## Botões
 - Botão Primário
+
 ```html
 <x-primary-button />
 ```
