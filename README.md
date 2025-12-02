@@ -25,3 +25,7 @@ O **Cash-Flow** é um sistema de controle financeiro que permite o gerenciamento
 ## Objetivo
 
 Inicialmente o projeto foi desenvolvido como ferrmenta para uso interno da nossa equipe, mas o projeto serve para ajudar pequenos negócois, freelancers ou qualquer pessoa que quer ter controle financeiro com uma ferramenta simples, visual e de fácil uso.
+
+## Migração
+
+Estamos migrando o projeto para laravel, aceda [Update](laravel/README.md)
