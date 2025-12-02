@@ -40,22 +40,26 @@ Inicialmente o projeto foi desenvolvido como ferrmenta para uso interno da nossa
 
 - **Passos**
 
-- 1.Clone o repositório:
+- 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/joaomesq/Arrendamento-Imoveis.git
-cd Arrendamento-Imoveis
+git clone https://github.com/joaomesq/Cash-Flow.git
+cd Cash-Flow
 ```
 
-- 2.Crie a base de dados
+- 2. Crie a base de dados:
 
-- 3.Faça a configuração do arquivo .env
+Crie uma base de dados com nome cash_flow
 
-- 4.Faça a configuração inicial do projeto através do script setu_project.py[scripts/setup_project.py]:
+- 3. Faça a configuração inicial do projeto através do script [setu_project.py](scripts/setup_project.py):
 
 ```bash
 python scripts/setup_project.py
 ```
+
+- 4. Configuração do arquivo.env(opcional)
+
+Caso a base de dados a ser utilizada não esteja em localhost(127.0.0.1), tenha denominação diferente de **cash_flow**, o usuário for diferente de **root** ou exija password, será preciso configurar esses dados no arquivo .env gerado. Caso nenhuma dessas condições for cumprida simplesmente ignore este passo ( ao rodar o script python já são definidos os valores padrão).
 
 - 4.Inicie os servidores de desenvolvimento
 
