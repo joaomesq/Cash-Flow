@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Transacao;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return Transacao::with('user')->get();
+    //return view('welcome');
 });
 
 Route::get('/dashboard', function () {
