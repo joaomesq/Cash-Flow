@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Models\Transacao;
+use App\Services\TransacaoService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    (new TransacaoService(userId: Auth::user()->id))->inserir(valor: 1000, tipo: 'receita', categoria: 'Prestação de Serviços', descricao: 'Alguma coisa importante', data: now());
     return Transacao::with('user')->get();
     //return view('welcome');
 });
