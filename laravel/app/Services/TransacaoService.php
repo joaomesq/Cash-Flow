@@ -12,7 +12,7 @@ class TransacaoService{
     }
 
     public function getAll(){
-        return Transacao::where('usuario_id', $this->idUser)->paginate(10);
+        return Transacao::with('user')->where('usuario_id', $this->idUser)->paginate(10);
     }
 
     public function inserir(float $valor, string $tipo = 'receita', string $categoria, string $descricao, string $data){
