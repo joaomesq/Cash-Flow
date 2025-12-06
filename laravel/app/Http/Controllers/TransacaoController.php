@@ -19,4 +19,8 @@ class TransacaoController extends Controller
     public function show(){
         return $this->transacaoService->getAll();
     }
+
+    public function create(){
+        return view('transacao/register');
+    }
 }

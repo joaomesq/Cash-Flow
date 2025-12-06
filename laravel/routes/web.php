@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); 
 });
 
 Route::get('/dashboard', function () {
@@ -18,6 +18,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     //transaction
     Route::get('/transacoes', [TransacaoController::class, 'show'])->name('transacoes');
+    Route::get('/transacao/create', [TransacaoController::class, 'create'])->name('transacao.create');
 
     //profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
