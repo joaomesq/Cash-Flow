@@ -32,4 +32,22 @@ class TransacaoService{
             'usuario_id'=> $this->idUser, 'descricao'=> $descricao, 'data'=> $data
         ]);
     }
+
+    public function receitaMensal(int $ano, int $mes){
+        $receita = Transacao::selectRaw('YEAR(data) as ano, MONTH(data) as mes, SUM(valor) as total')
+                            ->whereMonth('data', $mes)->whereYear('data', $ano)->where('usuario_id', $this->idUser)
+                            ->where('tipo', 'receita')->groupBy('data')->get('total');
+        foreach($receita as $valor):
+            return $valor->total;
+        endforeach;    
+    }
+
+    public function despesaMensal(int $ano, int $mes){
+        $receita = Transacao::selectRaw('YEAR(data) as ano, MONTH(data) as mes, SUM(valor) as total')
+                            ->whereMonth('data', $mes)->whereYear('data', $ano)->where('usuario_id', $this->idUser)
+                            ->where('tipo', 'despesa')->groupBy('data')->get('total');
+        foreach($receita as $valor):
+            return $valor->total;
+        endforeach;    
+    }
 }

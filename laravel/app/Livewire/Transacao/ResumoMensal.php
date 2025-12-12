@@ -19,6 +19,7 @@ class ResumoMensal extends Component
     public function mount(){
         $this->transacaoService = new TransacaoService(Auth::user()->id);
         $this->data = now()->format('m - Y');
+        $this->receita = $this->transacaoService->despesaMensal(now()->format('Y'), now()->format('m'));
     }
 
     public function render()
