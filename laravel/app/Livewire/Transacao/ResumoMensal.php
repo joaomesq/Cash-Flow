@@ -14,6 +14,10 @@ class ResumoMensal extends Component
     public $despesa;
     public $data;
     public $saldo;
+
+    protected $listeners = [
+        'transacao-criada'=> 'atualizarValores',
+    ];
     
     public function mount(){
         $this->data = now()->format('m - Y');
@@ -25,6 +29,15 @@ class ResumoMensal extends Component
     public function render()
     {
         return view('livewire.transacao.resumo-mensal');
+    }
+
+    public function atualizarValores($ano, $mes){
+        list($mesAtual, $anoAtual) = explode('-', $this->data);
+        if($mesAtual == $mes && $anoAtual == $anoAtual){
+            $this->receita = $this->getTransacaoService()->resumoMensal(ano: $anoAtual, mes: $mesAtual, tipo: 'receita');
+            $this->despesa = $this->getTransacaoService()->resumoMensal(ano: $anoAtual, mes: $mesAtual, tipo: 'despesa');
+            $this->calcularSaldo();
+        }
     }
 
     public function nextMonth(){
