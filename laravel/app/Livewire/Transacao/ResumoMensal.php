@@ -14,12 +14,12 @@ class ResumoMensal extends Component
     public $despesa;
     public $data;
     public $saldo;
-    private $transacaoService;
     
     public function mount(){
         $this->data = now()->format('m - Y');
-        $this->receita = number_format( $this->getTransacaoService()->resumoMensal(ano: now()->format('Y'), mes: now()->format('m'), tipo: 'receita'), 2, ',', '.');
-        $this->despesa = number_format( $this->getTransacaoService()->resumoMensal(ano: now()->format('Y'), mes: now()->format('m'), tipo: 'despesa'), 2, ',', '.');
+        $this->receita = $this->getTransacaoService()->resumoMensal(ano: now()->format('Y'), mes: now()->format('m'), tipo: 'receita');
+        $this->despesa = $this->getTransacaoService()->resumoMensal(ano: now()->format('Y'), mes: now()->format('m'), tipo: 'despesa');
+        $this->calcularSaldo();
     }
 
     public function render()
@@ -39,8 +39,9 @@ class ResumoMensal extends Component
         }
 
         //atualizando dados
-        $this->receita = number_format($this->getTransacaoService()->resumoMensal(ano: $ano, mes: $mes, tipo: 'receita'), 2, ',', '.');
-        $this->despesa = number_format($this->getTransacaoService()->resumoMensal(ano: $ano, mes: $mes, tipo: 'despesa'), 2, ',', '.');
+        $this->receita = $this->getTransacaoService()->resumoMensal(ano: $ano, mes: $mes, tipo: 'receita');
+        $this->despesa = $this->getTransacaoService()->resumoMensal(ano: $ano, mes: $mes, tipo: 'despesa');
+        $this->calcularSaldo();
 
         $this->data = $mes." - ".$ano;
     }
@@ -57,12 +58,16 @@ class ResumoMensal extends Component
         }
 
         //atualizando dados
-        $this->receita = number_format($this->getTransacaoService()->resumoMensal(ano: $ano, mes: $mes, tipo: 'receita'), 2, ',', '.');
-        $this->despesa = number_format($this->getTransacaoService()->resumoMensal(ano: $ano, mes: $mes, tipo: 'despesa'), 2, ',', '.');
+        $this->receita = $this->getTransacaoService()->resumoMensal(ano: $ano, mes: $mes, tipo: 'receita');
+        $this->despesa = $this->getTransacaoService()->resumoMensal(ano: $ano, mes: $mes, tipo: 'despesa');
+        $this->calcularSaldo();
 
         $this->data = $mes." - ".$ano;
     }
 
+    private function calcularSaldo(){
+        $this->saldo = $this->receita - $this->despesa;
+    }
     private function getTransacaoService(){
         return new TransacaoService(Auth::user()->id);
     }
