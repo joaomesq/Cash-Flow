@@ -33,21 +33,21 @@ class TransacaoService{
         ]);
     }
 
-    public function receitaMensal(int $ano, int $mes){
-        $receita = Transacao::selectRaw('YEAR(data) as ano, MONTH(data) as mes, SUM(valor) as total')
-                            ->whereMonth('data', $mes)->whereYear('data', $ano)->where('usuario_id', $this->idUser)
-                            ->where('tipo', 'receita')->groupBy('data')->get('total');
-        foreach($receita as $valor):
-            return $valor->total;
-        endforeach;    
-    }
+    /**
+     * Esta função pega os valores com base no tipo[receita, despesa] de transações realizadas durante o mês 
+     * de um determinado ano, realiza a soma e retorna o total
+     * @param int $ano - ano onde buscamos o mês
+     * @param int $mes - mês para o qual deve ser gerado o resumo ou total
+     * @param string $tipo - para qual tipo de transação devemos gerar o resumo[receita, despesa]
+     */
+    public function resumoMensal(int $ano, int $mes, string $tipo){
+        $valores = Transacao::whereMonth('data', $mes)->whereYear('data', $ano)->where('usuario_id', $this->idUser)
+                            ->where('tipo', $tipo)->orderBy('data')->get('valor');
+        $total = 0.00;
+        foreach($valores as $value):
+            $total += $value->valor;
+        endforeach;
 
-    public function despesaMensal(int $ano, int $mes){
-        $receita = Transacao::selectRaw('YEAR(data) as ano, MONTH(data) as mes, SUM(valor) as total')
-                            ->whereMonth('data', $mes)->whereYear('data', $ano)->where('usuario_id', $this->idUser)
-                            ->where('tipo', 'despesa')->groupBy('data')->get('total');
-        foreach($receita as $valor):
-            return $valor->total;
-        endforeach;    
+        return $total;    
     }
 }
