@@ -8,12 +8,17 @@
 
         <div class="receita">
             <p>Receita</p>
-            <span>AO {{ $receita }}</span>
+            <span>AO {{ number_format($receita, 2, ',', '.') }}</span>
         </div>
 
         <div class="despesa">
             <p>Despesa</p>
-            <span>AO {{ $despesa }}</span>
+            <span>AO {{ number_format($despesa, 2, ',', '.') }}</span>
+        </div>
+
+        <div class="saldo">
+            <p>Saldo</p>
+            <span>AO {{ number_format($saldo, 2, ',', '.') }}</span>
         </div>
     </div>
 </section>
