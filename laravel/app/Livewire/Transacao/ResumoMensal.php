@@ -17,13 +17,17 @@ class ResumoMensal extends Component
     private $transacaoService;
     
     public function mount(){
-        $this->transacaoService = new TransacaoService(Auth::user()->id);
         $this->data = now()->format('m - Y');
-        $this->receita = $this->transacaoService->despesaMensal(now()->format('Y'), now()->format('m'));
+        $this->receita = $this->getTransacaoService()->resumoMensal(ano: now()->format('Y'), mes: now()->format('m'), tipo: 'receita');
+        $this->despesa = $this->getTransacaoService()->resumoMensal(ano: now()->format('Y'), mes: now()->format('m'), tipo: 'despesa');
     }
-
+    
     public function render()
     {
         return view('livewire.transacao.resumo-mensal');
+    }
+
+    private function getTransacaoService(){
+        return new TransacaoService(Auth::user()->id);
     }
 }
