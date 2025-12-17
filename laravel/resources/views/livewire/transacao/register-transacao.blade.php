@@ -1,4 +1,4 @@
-<section class="insert-transacao bg-white p-4">
+<section class="insert-transacao p-4">
     <div>
         <form wire:submit.prevent="salvar">
             <fieldset>
