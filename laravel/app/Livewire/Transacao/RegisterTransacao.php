@@ -47,10 +47,15 @@ class RegisterTransacao extends Component
 
     public function salvar(){
         $this->validate();
-        //var_dump($this->valor, $this->categoria, $this->descricao, $this->tipo, $this->data);
         $sucesso = $this->getServiceTransacao()->inserir(valor: $this->valor, tipo: $this->tipo, categoria: $this->categoria, descricao: $this->descricao, data: $this->data);
         
-        $this->reset(['valor', 'descricao', 'tipo', 'categoria', 'data']);
+        if($sucesso):
+            //enviar evento para resumo mensal
+            list($dia, $mes, $ano) = explode('-', $this->data);
+            $this->dispatch('transacao-criada', ano: $ano, mes: $mes)->to(ResumoMensal::class);
+        endif;        
+
+        $this->reset();
     }
 
     private function getServiceTransacao(){
