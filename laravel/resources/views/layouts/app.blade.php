@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,12 +11,21 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
+
+
+
+        
     </head>
-    <body class="font-sans antialiased">
+
+    <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+
+            <!-- Navigation / Sidebar -->
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -28,12 +37,79 @@
                 </header>
             @endisset
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
         </div>
+
+        @livewireScripts
     </body>
 
-    @livewireScripts
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const switchBg = document.getElementById('switchBg');
+
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            switchBg.style.transform = 'translateX(40px)';
+        } else {
+            document.documentElement.classList.remove('dark');
+            switchBg.style.transform = 'translateX(0)';
+        }
+    }
+
+    window.toggleTheme = function () {
+        const isDark = document.documentElement.classList.contains('dark');
+        const newTheme = isDark ? 'light' : 'dark';
+
+        localStorage.setItem('theme', newTheme);
+        setTheme(newTheme);
+    }
+
+    // 🔥 AO CARREGAR A PÁGINA
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else {
+        // opcional: seguir sistema
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light');
+    }
+
+});
+</script>
+<script>
+if (!window.__themeInitialized) {
+    window.__themeInitialized = true;
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const switchBg = document.getElementById('switchBg');
+        if (!switchBg) return;
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                switchBg.style.transform = 'translateX(40px)';
+            } else {
+                document.documentElement.classList.remove('dark');
+                switchBg.style.transform = 'translateX(0)';
+            }
+        }
+
+        window.toggleTheme = function () {
+            const isDark = document.documentElement.classList.contains('dark');
+            const newTheme = isDark ? 'light' : 'dark';
+
+            localStorage.setItem('theme', newTheme);
+            setTheme(newTheme);
+        };
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+    });
+}
+</script>
+
+
 </html>
