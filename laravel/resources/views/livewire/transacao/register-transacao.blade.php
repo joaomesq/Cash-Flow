@@ -58,6 +58,4 @@
             </div>
         </form>
     </div>
-
-    {{ $descricao.$valor.$tipo.$categoria.$data }}
 </section>

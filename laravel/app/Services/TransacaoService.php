@@ -15,6 +15,11 @@ class TransacaoService{
         return Transacao::with('user')->where('usuario_id', $this->idUser)->paginate(10);
     }
 
+    public function getMensal(int $ano, int $mes){
+        return Transacao::whereYear('data', $ano)->whereMonth('data', $mes)->where('usuario_id', $this->idUser)
+                        ->orderBy('created_at', 'desc')->limit(15)->get();
+    }
+
     public function inserir(float $valor, string $tipo = 'receita', string $categoria, string $descricao, string $data){
         //validar os campos
         if(empty($valor) || empty($categoria) || empty($categoria) || empty($data)):
