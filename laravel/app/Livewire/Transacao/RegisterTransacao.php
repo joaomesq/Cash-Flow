@@ -51,8 +51,8 @@ class RegisterTransacao extends Component
         
         if($sucesso):
             //enviar evento para resumo mensal
-            list($dia, $mes, $ano) = explode('-', $this->data);
-            $this->dispatch('transacao-criada', ano: $ano, mes: $mes)->to(ResumoMensal::class);
+            list($ano, $mes, $dia) = explode('-', $this->data);
+            $this->dispatch('transacao-criada', ano: $ano, mes: $mes);
         endif;        
 
         $this->reset();

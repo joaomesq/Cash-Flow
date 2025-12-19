@@ -7,5 +7,9 @@
         <div class="bg-white mt-4">
             <livewire:transacao.register-transacao />
         </div>
+
+        <div class="bg-white mt-4">
+            <livewire:transacao.lista-mensal />
+        </div>
     </section>
 </x-app-layout>

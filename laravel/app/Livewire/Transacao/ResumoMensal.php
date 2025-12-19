@@ -4,6 +4,7 @@ namespace App\Livewire\Transacao;
 
 use App\Services\TransacaoService;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 use function Symfony\Component\Clock\now;
@@ -15,10 +16,6 @@ class ResumoMensal extends Component
     public $data;
     public $saldo;
 
-    protected $listeners = [
-        'transacao-criada'=> 'atualizarValores',
-    ];
-    
     public function mount(){
         $this->data = now()->format('m - Y');
         $this->receita = $this->getTransacaoService()->resumoMensal(ano: now()->format('Y'), mes: now()->format('m'), tipo: 'receita');
@@ -31,9 +28,11 @@ class ResumoMensal extends Component
         return view('livewire.transacao.resumo-mensal');
     }
 
-    public function atualizarValores($ano, $mes){
+    #[On('transacao-criada')]
+    public function atualizarValores(int $ano, int $mes){
         list($mesAtual, $anoAtual) = explode('-', $this->data);
-        if($mesAtual == $mes && $anoAtual == $anoAtual){
+        
+        if($mesAtual == $mes && $anoAtual == $ano){
             $this->receita = $this->getTransacaoService()->resumoMensal(ano: $anoAtual, mes: $mesAtual, tipo: 'receita');
             $this->despesa = $this->getTransacaoService()->resumoMensal(ano: $anoAtual, mes: $mesAtual, tipo: 'despesa');
             $this->calcularSaldo();
