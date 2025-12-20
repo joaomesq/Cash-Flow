@@ -36,10 +36,6 @@ class RegisterTransacao extends Component
         'tipo.required'=> 'O tipo é obrigatório', 'data.required'=> 'A data é obrigatória'
     ];
 
-    public function mount(){
-        $this->data = now()->format('d-m-Y');
-    }
-
     public function render()
     {
         return view('livewire.transacao.register-transacao');
@@ -55,7 +51,7 @@ class RegisterTransacao extends Component
             $this->dispatch('transacao-criada', ano: $ano, mes: $mes);
         endif;        
 
-        $this->reset();
+        $this->reset(['descricao', 'categoria', 'valor', 'data']);
     }
 
     private function getServiceTransacao(){
