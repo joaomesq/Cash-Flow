@@ -12,7 +12,8 @@ class TransacaoService{
     }
 
     public function getAll(){
-        return Transacao::with('user')->where('usuario_id', $this->idUser)->paginate(10);
+        return Transacao::where('usuario_id', $this->idUser)->orderBy('data', 'desc')->orderBy('created_at', 'desc')
+                        ->paginate(15);
     }
 
     public function getMensal(int $ano, int $mes){
