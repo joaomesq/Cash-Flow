@@ -19,6 +19,8 @@ Route::middleware('auth')->group(function () {
     //transaction
     Route::get('/transacoes', [TransacaoController::class, 'show'])->name('transacoes');
     Route::get('/transacao/create', [TransacaoController::class, 'create'])->name('transacao.create');
+    Route::get('/historico', [TransacaoController::class, 'getAll'])->name('transacao.historico');
+
 
     //profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

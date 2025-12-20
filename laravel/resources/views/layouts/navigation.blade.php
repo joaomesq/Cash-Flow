@@ -19,6 +19,10 @@
                     <x-nav-link :href="route('transacao.create')" :active="request()->routeIs('transacao.create')">
                         {{ __('Registrar')}}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('transacao.historico')" :active="request()->routeIs('transacao.historico')">
+                        {{ __('Histórico')}}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -77,6 +81,10 @@
 
             <x-responsive-nav-link :href="route('transacao.create')" :active="request()->routeIs('transacao.create')">
                 {{ __('Registrar')}}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('transacao.historico')" :active="request()->routeIs('transacao.historico')">
+                {{ __('Histórico')}}
             </x-responsive-nav-link>
         </div>
 
