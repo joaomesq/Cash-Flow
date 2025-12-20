@@ -23,6 +23,7 @@ class ListaMensal extends Component
     }
 
     #[On('transacao-criada')]
+    #[On('alterar-data')]
     public function atualizarLista(int $ano, int $mes){
         $this->transacoes = $this->getTransacaoService()->getMensal(ano: $ano, mes: $mes);
     }
