@@ -1,6 +1,6 @@
 <x-app-layout>
     <section class="main">
-        <div>
+        <div class="bg-white p-4">
             <livewire:transacao.listar />
         </div>
     </section>
