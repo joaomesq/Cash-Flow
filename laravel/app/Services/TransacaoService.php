@@ -43,7 +43,7 @@ class TransacaoService{
         return Transacao::query()->when($descricao, fn($q)=> $q->where('descricao', 'LIKE', "{$descricao}%"))
                             ->when($categoria, fn($q)=> $q->where('categoria', 'LIKE', "{$categoria}%"))
                             ->when($tipo, fn($q)=> $q->where('tipo', $tipo))
-                            ->when($valor, fn($q)=> $q->where($valor, 'LIKE', "{$valor}%"))
+                            ->when($valor, fn($q)=> $q->where('valor', 'LIKE', "{$valor}%"))
                             ->when($dataInicio, fn($q)=> $q->whereDate('data', '>=', $dataInicio))
                             ->when($dataFim, fn($q)=> $q->whereDate('data', '<=', $dataFim))
                             ->where('usuario_id', $this->idUser)->orderBy('data', 'desc')->orderBy('created_at', 'desc')
