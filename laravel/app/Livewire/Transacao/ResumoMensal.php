@@ -31,7 +31,7 @@ class ResumoMensal extends Component
     #[On('transacao-criada')]
     public function atualizarValores(int $ano, int $mes){
         list($mesAtual, $anoAtual) = explode('-', $this->data);
-        
+
         if($mesAtual == $mes && $anoAtual == $ano){
             $this->receita = $this->getTransacaoService()->resumoMensal(ano: $anoAtual, mes: $mesAtual, tipo: 'receita');
             $this->despesa = $this->getTransacaoService()->resumoMensal(ano: $anoAtual, mes: $mesAtual, tipo: 'despesa');
@@ -56,6 +56,9 @@ class ResumoMensal extends Component
         $this->calcularSaldo();
 
         $this->data = $mes." - ".$ano;
+
+        //evento para a lista mensal
+        $this->dispatch('alterar-data', ano: $ano, mes: $mes)->to(ListaMensal::class);
     }
 
     public function backMonth(){
@@ -75,6 +78,9 @@ class ResumoMensal extends Component
         $this->calcularSaldo();
 
         $this->data = $mes." - ".$ano;
+
+        //evento para a lista mensal
+        $this->dispatch('alterar-data', ano: $ano, mes: $mes)->to(ListaMensal::class);
     }
 
     private function calcularSaldo(){
