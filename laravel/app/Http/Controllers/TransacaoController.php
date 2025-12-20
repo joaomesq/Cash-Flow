@@ -23,4 +23,8 @@ class TransacaoController extends Controller
     public function create(){
         return view('transacao/register');
     }
+
+    public function getAll(){
+        return view('transacao/historico');
+    }
 }
