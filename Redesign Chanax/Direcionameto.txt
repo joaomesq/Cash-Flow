@@ -1,0 +1,61 @@
+Direcionamento geral
+
+A interface já está num bom caminho visual.
+Agora o foco deve ser organizar as principais funcionalidades como ações rápidas, pensando primeiro no mobile, sem quebrar a experiência já criada no desktop.
+Precisa-se focar nas 4 ações centrais do produto.
+
+-Adicionar transação
+-Balanço Geral(Dasboard)
+-Histórico
+-Gerar PDF
+
+Essas ações não podem estar escondidas, nem competir com informação visual. Elas precisam ser rápidas, óbvias e sempre acessíveis.
+
+#Ações rápidas (Mobile)
+No mobile, Balanço, Adicionar, Histórico e PDF devem funcionar como um bloco de ações primárias.
+A ideia não é espalhar botões pela tela, mas:
+
+-Concentrar as ações num único ponto previsível
+-Tornar o acesso possível com um toque
+
+O utilizador não deve “pensar” onde clicar, deve instintivamente saber.
+
+
+#Navegação mobile:
+
+A navegação precisa ser inferior (bottom navigation).
+Balanço Geral/Dashboard, Histórico, Adicionar e E Gerar PDF devem estar sempre acessíveis.
+Será contraditório, mas se possível seria ótimo transformar Gerar PDF em contextual.
+
+#No desktop:
+
+A sidebar já funciona bem e pode ser mantida.
+Mas deve-se apenas garantir:
+-Destaque claro da página ativa
+-Mesma ordem lógica usada no mobile
+
+Mobile e desktop não precisam ser iguais, mas precisam seguir a mesma lógica mental.
+
+
+#Balanço Geral(Dashboard) vs Ações
+O dashboard não deve tentar fazer tudo.
+Ele serve para:
+-Mostrar o estado financeiro
+-Levar rapidamente às ações principais
+
+É basicamente um resumão do dados, o restante fica em telas primárias próprias.
+
+#Estilo desktop (o que manter e ajustar)
+O estilo visual do desktop já é bom e deve ser preservado:
+-Dark theme
+-Cards bem definidos
+-Tipografia clara
+-Uso controlado de cores
+
+O cuidado aqui é:
+-Não adicionar mais elementos visuais
+-Evitar novos tipos de cards sem necessidade
+-Manter consistência entre dashboard, histórico e relatórios
+
+
+No desktop, as ações (Adicionar, Histórico, PDF) podem existir como botões visíveis, mas sem competir com os dados. A prioridade continua sendo leitura rápida.
