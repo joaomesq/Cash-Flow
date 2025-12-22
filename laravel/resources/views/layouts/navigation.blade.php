@@ -1,38 +1,42 @@
+@vite(['resources/css/nav.css'])
+        @livewireStyles
+
 <div x-data="{ open: false }" class="flex min-h-screen bg-gray-100 dark:bg-[#0f0f10]">
 
     <!-- SIDEBAR -->
-    <aside class="w-20 bg-white dark:bg-[#151517] border-r dark:border-gray-800
+    <aside class="w-20 bg-[#f2f2f2] dark:bg-[#151517] border-r dark:border-gray-800
                   flex flex-col items-center py-6 gap-6 fixed inset-y-0 z-40">
 
 
                   
         <!-- Logo -->
-        <div class="text-xl font-extrabold tracking-wide text-gray-800 dark:text-white">
+        <div class="text-xl font-extrabold tracking-wide  text-gray-800 dark:text-white">
          <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
         </div>
 
         <!-- Navigation -->
-        <nav class="flex flex-col gap-4">
+        <nav class="flex flex-col gap-4  p-3">
             <a href="{{ route('dashboard') }}"
-               class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow">
+               class="w-10 h-10 rounded-xl bg-[#007fff] flex items-center justify-center text-white shadow">
                 ▦
             </a>
 
             <a href="{{ route('transacao.create') }}"
-               class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+               class="w-10 h-10 rounded-xl bg-[#ccc] dark:bg-[222222] flex items-center justify-center">
                 📊
             </a>
 
-            <button class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-700">💬</button>
-            <button class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-700">👥</button>
+            <button class="w-10 h-10 rounded-xl bg-[#ccc] dark:bg-[222222]">💬</button>
+            <button class="w-10 h-10 rounded-xl bg-[#ccc] dark:bg-[222222]">👥</button>
         </nav>
 
         <!-- Bottom -->
-        <div class="mt-auto flex flex-col gap-4">
+        <div class="mt-auto border-t flex flex-col items-center gap-4 w-full">
+
             <a href="{{ route('profile.edit') }}"
-               class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+               class="w-10 h-10 rounded-xl bg-[#ccc] dark:bg-[222222] flex items-center justify-center">
                 ⚙️
             </a>
 
@@ -42,19 +46,22 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit"
-                        class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-700">
-                    ⏻
-                </button>
+        class="w-10 h-10 rounded-xl bg-[#ccc] dark:bg-[222222] flex items-center justify-center">
+    ⏻
+</button>
+
             </form>
-       <button onclick="toggleTheme()"
-        class="relative w-20 h-10 rounded-full bg-gray-200 dark:bg-gray-800 transition-colors duration-300">
+       <div class="flex justify-center w-full">
+    <button onclick="toggleTheme()"
+            class="relative w-20 h-10 rounded-full bg-gray-800 dark:bg-gray-800 transition-colors duration-800">
+
 
     <!-- FUNDO AZUL -->
     <span id="switchBg"
-          class="absolute top-1 left-1 w-8 h-8 rounded-full bg-blue-600 transition-transform duration-300"></span>
+          class="absolute top-1 left-1 w-8 h-8 rounded-full bg-[#0d6edf] transition-transform duration-300"></span>
 
     <!-- ÍCONES -->
-    <div class="relative z-10 flex items-center justify-between h-full px-3">
+    <div class="relative z-10 flex items-center justify-between h-full px-3 modo rounded-full">
         
         <!-- SOL -->
         <svg id="sunIcon"
@@ -86,26 +93,26 @@
     <div class="flex-1 ml-20">
 
         <!-- TOP BAR -->
-        <header class="h-16 bg-white dark:bg-[#151517]
-                       border-b border-gray-200 dark:border-gray-800
+        <header class="h-16 bg-[#ffffff]  dark:bg-[#222222]
+                        
                        flex items-center justify-between px-8">
 
             <!-- Search -->
             <input type="text"
                    placeholder="Pesquisar"
-                   class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800
-                          text-sm w-72 focus:outline-none">
+                   class="px-4 py-2 rounded-full bg-gray-100 pesquisa dark:bg-[#151517]
+                          text-sm w-72 ">
 
             <!-- Right -->
             <div class="flex items-center gap-4">
-                <div class="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm">
+                <div class="px-4 py-2 bg-gray-100 dark:bg-[#151517] dark:text-[#808080] rounded-full text-sm">
                     09-12-2025 / 15-12-2025
                 </div>
 
-                <div class="w-9 h-9 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+                <div class="w-9 h-9 bg-black dark:bg-[#151517] dark:text-[#808080] rounded-full"></div>
 
                 <!-- User -->
-                <div class="px-4 py-2 bg-black dark:bg-white dark:text-black
+                <div class="px-4 py-2 bg-black dark:bg-[#151517] dark:text-[#808080] dark:text-black
                             text-white rounded-full text-sm">
                     Olá, {{ Auth::user()->name }}
                 </div>
@@ -116,7 +123,7 @@
         </header>
 
         <!-- PAGE CONTENT -->
-        <main class="p-8">
+        <main class="p-8 dark:bg-[#222222] bg-[#fff]">
             {{ $slot ?? '' }}
         </main>
     </div>

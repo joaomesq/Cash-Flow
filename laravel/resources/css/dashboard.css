@@ -1,0 +1,129 @@
+.cuide{
+ color: #000 !important;
+font-size: 22pt !important;
+font-weight: bold;
+margin-top: 18px;
+margin-bottom: 19px !important;
+}
+
+/* Container das cards do topo */
+.grid.grid-cols-1.md\:grid-cols-5 {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: flex-end; /* alinhamento pela base */
+}
+
+.mais{
+    height:70px !important;
+}
+.pdf{
+    width: 100px !important;
+    margin-bottom: 30px !important;
+}
+
+/* Total, Receitas, Despesas e botão + */
+.grid.grid-cols-1.md\:grid-cols-5 > div:first-child, /* Total */
+.grid.grid-cols-1.md\:grid-cols-5 > div:nth-child(2), /* Receitas */
+.grid.grid-cols-1.md\:grid-cols-5 > div:nth-child(3), /* Despesas */
+.grid.grid-cols-1.md\:grid-cols-5 > button {          /* Botão + */
+  height: 70px;
+  min-height: unset;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mensal: mais alta, cresce para cima */
+.grid.grid-cols-1.md\:grid-cols-5 > div:last-child {  
+  height: 120px;
+  min-height: unset;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* conteúdo fica na base */
+  align-items: center;
+}
+
+
+/* Ajuste de largura */
+.grid.grid-cols-1.md\:grid-cols-5 > div:first-child, /* Total */
+.grid.grid-cols-1.md\:grid-cols-5 > div:last-child  /* Mensal */ {
+  flex: 1 1 42%;
+}
+
+.grid.grid-cols-1.md\:grid-cols-5 > div:nth-child(2),
+.grid.grid-cols-1.md\:grid-cols-5 > div:nth-child(3) {
+  flex: 1 1 20%; /* Receitas e Despesas */
+  margin-right: -15px;
+}
+
+.grid.grid-cols-1.md\:grid-cols-5 > button {
+  flex: 1 1 8% !important; /* botão + menor */
+  
+}
+
+
+/* Container Middle */
+.grid.grid-cols-2.md\:grid-cols-4 {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Cards do Middle */
+.grid.grid-cols-2.md\:grid-cols-4 > div.md\:col-span-1 {
+  flex: 1 1 35%; /* Relatório e Destaque menores */
+}
+
+
+
+
+.grid.grid-cols-2.md\:grid-cols-4 > div.md\:col-span-2 {
+  flex: 1 1 50%; /* Insights maior */
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 767px) {
+  .grid.grid-cols-2.md\:grid-cols-4 {
+    flex-wrap: wrap;
+  }
+
+  .grid.grid-cols-2.md\:grid-cols-4 > div {
+    flex: 1 1 100%;
+    margin-bottom: 1rem;
+  }
+}
+ 
+
+/* ===============================
+   LIBERAR GRÁFICO DA CARD
+=============================== */
+
+/* Card do relatório */
+.bg-white {
+  overflow: visible !important;
+}
+
+/* Container do gráfico */
+#grafico {
+  overflow: visible !important;
+}
+
+/* Wrapper do SVG */
+.relative.flex.justify-center {
+  overflow: visible !important;
+}
+
+/* Texto percentual externo */
+#percentual-externo {
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+
+
