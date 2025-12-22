@@ -11,6 +11,7 @@ Precisa-se focar nas 4 ações centrais do produto.
 
 Essas ações não podem estar escondidas, nem competir com informação visual. Elas precisam ser rápidas, óbvias e sempre acessíveis.
 
+
 #Ações rápidas (Mobile)
 No mobile, Balanço, Adicionar, Histórico e PDF devem funcionar como um bloco de ações primárias.
 A ideia não é espalhar botões pela tela, mas:
@@ -22,13 +23,12 @@ O utilizador não deve “pensar” onde clicar, deve instintivamente saber.
 
 
 #Navegação mobile:
-
 A navegação precisa ser inferior (bottom navigation).
 Balanço Geral/Dashboard, Histórico, Adicionar e E Gerar PDF devem estar sempre acessíveis.
 Será contraditório, mas se possível seria ótimo transformar Gerar PDF em contextual.
 
-#No desktop:
 
+#No desktop:
 A sidebar já funciona bem e pode ser mantida.
 Mas deve-se apenas garantir:
 -Destaque claro da página ativa
