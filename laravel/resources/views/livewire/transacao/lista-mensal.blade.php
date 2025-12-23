@@ -19,7 +19,7 @@
                         <td>{{ $transacao->descricao }}</td>
                         <td>{{ $transacao->categoria }}</td>
                         <td>{{ $transacao->data }}</td>
-                        <td class="{{ ($transacao->tipo == 'receita')? 'text-green-500': 'text-red-500' }}">{{ $transacao->valor }}</td>
+                        <td class="{{ ($transacao->tipo == 'receita')? 'text-green-500': 'text-red-500' }}">AO {{ $transacao->valor }}</td>
                     </tr>
                 @endforeach
             @endif

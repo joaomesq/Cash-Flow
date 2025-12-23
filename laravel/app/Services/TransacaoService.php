@@ -83,6 +83,6 @@ class TransacaoService{
         endif;
 
         return Transacao::query()->when($tipo, fn($q)=> $q->where('tipo', $tipo))->where('usuario_id', $this->idUser)
-                        ->orderBy('data', 'desc')->orderBy('created_at', 'desc')->get()->limit($limite);
+                        ->orderBy('data', 'desc')->orderBy('created_at', 'desc')->limit($limite)->get();
     }
 }
