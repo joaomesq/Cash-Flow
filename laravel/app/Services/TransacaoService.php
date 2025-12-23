@@ -67,4 +67,22 @@ class TransacaoService{
 
         return $total;    
     }
+
+    /**
+     * Pega as últimas transações realizadas, tem como limite maximo 8 transações.
+     * @param int $limite limita o número de transações, por padrão 4. 
+     * @param string $tipo diz qual tipo[recita, despesa] de transação queremos pegar. Caso não for passado pega todos os tipos
+     */
+    public function ultimasTransacoes(int $limite = 4, string|null $tipo = null){
+        if($limite > 8):
+            $limite = 8;
+        endif;
+
+        if($tipo != null && !in_array($tipo, ['receita', 'despesa'])):
+            $tipo = null;
+        endif;
+
+        return Transacao::query()->when($tipo, fn($q)=> $q->where('tipo', $tipo))->where('usuario_id', $this->idUser)
+                        ->orderBy('data', 'desc')->orderBy('created_at', 'desc')->get()->limit($limite);
+    }
 }
