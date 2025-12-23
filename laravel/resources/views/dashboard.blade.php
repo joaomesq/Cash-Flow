@@ -5,7 +5,9 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 bg-white">
-        <livewire:transacao.ultimas-transacoes />
-    </div>
+    <section class="main">
+        <div class="py-6 bg-white">
+            <livewire:transacao.ultimas-transacoes />
+        </div>
+    </section>
 </x-app-layout>

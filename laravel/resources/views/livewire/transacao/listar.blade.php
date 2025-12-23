@@ -62,7 +62,7 @@
                             <td>{{ $transacao->descricao }}</td>
                             <td>{{ $transacao->categoria }}</td>
                             <td>{{ $transacao->data }}</td>
-                            <td class="{{ ($transacao->tipo == 'receita')? 'text-green-500': 'text-red-500' }}">{{ number_format($transacao->valor, 2, ',', '.') }}</td>
+                            <td class="{{ ($transacao->tipo == 'receita')? 'text-green-500': 'text-red-500' }}">AO {{ number_format($transacao->valor, 2, ',', '.') }}</td>
                         </tr>
                     @endforeach
                 @endif
