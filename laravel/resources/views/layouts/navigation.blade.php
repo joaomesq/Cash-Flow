@@ -1,7 +1,8 @@
 @vite(['resources/css/nav.css'])
 @livewireStyles
 
-<nav x-data="{ open: false }" class="flex min-h-screen bg-gray-100 dark:bg-[#0f0f10]">
+<header x-data="{ open: false }" class="flex bg-gray-100 dark:bg-[#0f0f10]">
+
     <!-- Primary Navigation Menu -->
     <div class="flex w-full">
         
@@ -21,7 +22,7 @@
             </div>
 
             <!-- Navigation Links -->
-            <div class="flex flex-col gap-4 p-3">
+            <nav class="flex flex-col gap-4 p-3">
                 <a
                     href="{{ route('dashboard') }}"
                     class="w-10 h-10 rounded-xl bg-[#007fff]
@@ -45,10 +46,10 @@
                 <button class="w-10 h-10 rounded-xl bg-[#ccc] dark:bg-[222222]">
                     👥
                 </button>
-            </div>
+            </nav>
 
             <!-- Settings / Bottom Actions -->
-            <div class="mt-auto border-t flex flex-col items-center gap-4 w-full">
+            <section class="mt-auto border-t flex flex-col items-center gap-4 w-full">
                 
                 <!-- Profile -->
                 <a
@@ -125,16 +126,17 @@
                         </div>
                     </button>
                 </div>
-            </div>
+            </section>
         </aside>
 
         <!-- TOP BAR -->
-        <div class="flex-1 ml-20">
-          <header
-    class="fixed top-0 left-20 right-0 h-16
+        <article class="flex-1 ml-20">
+          <section
+    class="h-16
            bg-[#ffffff] dark:bg-[#222222]
-           flex items-center justify-between px-8 z-30"
+           flex items-center justify-between px-8"
 >
+
 
                 <!-- Search -->
                 <input
@@ -165,8 +167,11 @@
                     >
                         Olá, {{ Auth::user()->name }}
                     </div>
+                    
                 </div>
-            </header>
-        </div>
+            </section>
+        </article>
     </div>
-</nav>
+</header>
+
+

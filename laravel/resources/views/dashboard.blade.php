@@ -9,7 +9,7 @@
 
 <x-app-layout>
     <!-- Dashboard Financeiro -->
-    <main class="pt-6 pb-12 bg-[#fff] dark:bg-[#222222] main min-h-screen">
+    <section class="pt-6 pb-12 bg-[#fff] dark:bg-[#222222] main min-h-screen">
         <div class="max-w-9xl mx-auto ">
 
             <!-- HEADER -->
@@ -199,5 +199,5 @@
             </div>
 
         </div>
-    </main>
+    </section>
 </x-app-layout>

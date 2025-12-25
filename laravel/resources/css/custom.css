@@ -1,10 +1,6 @@
 /* =========================
    FUNDO GLOBAL
 ========================= */
-.main{
-  margin-left: -15px !important;
-  margin-right: -15px !important;
-}
 
 .rounded-2xl{
   margin-left: -8px !important;
@@ -12,7 +8,7 @@
 }
 
 main {
-  background-color: #ffffff !important;margin-top:-18rem !important;
+  background-color: #ffffff !important;
 }
 .text-left, p,h3{
   font-size: 10pt !important;

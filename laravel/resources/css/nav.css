@@ -7,4 +7,22 @@
 }
 
 
+  /* Remove min-height do header para que role junto */
+header {
+    min-height: auto !important;
+}
+
+  /* Topbar rolando com conteúdo */
+article {
+    position: relative; /* não fixo */
+    margin-left: 5rem;  /* largura da sidebar */
+}
+
+  /* Ajuste do main */
+main {
+    margin-left: 5rem;
+    padding: 1.5rem;
+    margin-top: 0 !important; /* remove top margin que empurra conteúdo */
+}
+
 

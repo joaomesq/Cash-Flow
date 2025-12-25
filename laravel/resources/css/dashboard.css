@@ -1,10 +1,11 @@
-.cuide{
- color: #000 !important;
-font-size: 22pt !important;
-font-weight: bold;
-margin-top: 18px;
-margin-bottom: 19px !important;
+.cuide {
+  color: #000 !important;
+  font-size: 22pt !important;
+  font-weight: bold;
+  margin-top: 0 !important;   /* removido o mt de 18px */
+  margin-bottom: 19px !important;
 }
+
 
 /* Container das cards do topo */
 .grid.grid-cols-1.md\:grid-cols-5 {
@@ -18,6 +19,7 @@ margin-bottom: 19px !important;
 .mais{
     height:70px !important;
 }
+
 .pdf{
     width: 100px !important;
     margin-bottom: 30px !important;
