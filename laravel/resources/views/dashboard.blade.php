@@ -9,5 +9,9 @@
         <div class="py-6 bg-white">
             <livewire:transacao.ultimas-transacoes />
         </div>
+        
+        <div>
+            <livewire:transacao.resumo-transacoes />
+        </div>
     </section>
 </x-app-layout>
