@@ -8,11 +8,13 @@ use Livewire\Component;
 
 class ResumoTransacoes extends Component
 {
-    public $transacoes;
-    
+    public $receitas;
+    public $despesas;
+
     public function render()
     {
-        $this->transacoes = (new TransacaoService(userId: Auth::user()->id))->resumoTransacoes('despesa', 'categoria');
+        $this->despesas = (new TransacaoService(userId: Auth::user()->id))->resumoTransacoes('despesa');
+        $this->receitas = (new TransacaoService(userId: Auth::user()->id))->resumoTransacoes(tipo: 'receita');
         return view('livewire.transacao.resumo-transacoes');
     }
 }
