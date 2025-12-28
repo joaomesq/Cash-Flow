@@ -10,7 +10,7 @@
             <livewire:transacao.ultimas-transacoes />
         </div>
         
-        <div>
+        <div class="py-6 bg-white">
             <livewire:transacao.resumo-transacoes />
         </div>
     </section>

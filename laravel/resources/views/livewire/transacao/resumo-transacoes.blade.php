@@ -1,3 +1,5 @@
 <div>
-    {{-- The best athlete wants his opponent at his best. --}}
+    @foreach($transacoes as $transacao)
+        {{ $transacao }}
+    @endforeach
 </div>

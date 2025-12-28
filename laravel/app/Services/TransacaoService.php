@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Models\Transacao;
+use Illuminate\Support\Facades\DB;
 
 class TransacaoService{
     private $idUser;
@@ -84,5 +85,21 @@ class TransacaoService{
 
         return Transacao::query()->when($tipo, fn($q)=> $q->where('tipo', $tipo))->where('usuario_id', $this->idUser)
                         ->orderBy('data', 'desc')->orderBy('created_at', 'desc')->limit($limite)->get();
+    }
+
+    /**
+     * Pega os valoes, com base no tipo[receita, despesa], das transação realizadas 
+     * em determinado periodo[mes, ano, dia, todo] soma e retorna os totais
+     * Esses totais são gerados agrupando os valores de acordo com alguma coluna
+     * @param string $tipo - [receita, despesa]
+     * @param string $coluna [descricao, categoria] - determina se os valoes devem ser baseado em categoria ou descricao
+     */
+    public function resumoTransacoes(string $tipo, string $coluna = 'descricao'){
+        //checar coluna && tipo
+        $coluna = ( $coluna != 'descricao') ? 'categoria' : $coluna ;
+        $tipo = ( $tipo != 'receita' ) ? 'despesa': $tipo;
+
+        return Transacao::select($coluna, DB::raw("SUM(valor) as total"))->groupBy($coluna)
+                        ->where('usuario_id', $this->idUser)->where('tipo', $tipo)->get();
     }
 }
