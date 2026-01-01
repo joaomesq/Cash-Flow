@@ -11,5 +11,5 @@
 - Evitar lógica pesada dentro das views.
 
 ```blade
-<x-nav-link :href="route('imoveis')" :active="request()->routeIs('imoveis')">Imóveis</x-nav-link>
+<x-nav-link :href="route('resgistar')" :active="request()->routeIs('registar')">Registar</x-nav-link>
 ```

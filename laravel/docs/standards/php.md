@@ -3,7 +3,7 @@
 ## Convenções
 - Seguir **PSR-12** como base.
 - Nome de casses em **StudlyCase** (ex: `UserController`)
-- Nome de métodos em **camelCase** (ex: `criarImovel`)
+- Nome de métodos em **camelCase** (ex: `resumoMensal`)
 - Variáveis em **camelCase** (ex: `$descricao`, `$valorMensal`)
 - Constantes em **UPPER_CASE**
 
@@ -11,23 +11,17 @@
 - Models no singular (`Usuario`)
 - Usar **snake_case** para nomes de colunas
 - Relacionamento claros:
-  - `Usuario` pode ser **locador/proprietario**(possui imoveis) ou **locatário**(possui contratos, arrenda imóveis).
-  - `Imovel` pertence a um locador.
-  - `ImagemImovel` pertence a um imóvel, imovel possui várias imagens
-
+  - `Transacao` pertence a um Usuário.
+  
 ## Exemplo
 ```php
-class Imovel extends Model
+class Transacao extends Model
 {
-    protected $table = 'imoveis';
+    protected $table = 'transacoes';
 
     //Relacionamento
-    public function proprietario(){
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function imagens(){
-        return $this->hasMany(ImagemImovel::class);
+    public function user(){
+        return $this->belongsTo(User::class, 'usuario_id');
     }
 }
 ```
