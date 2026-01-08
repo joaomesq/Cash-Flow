@@ -55,7 +55,7 @@ def criar_arquivo_env():
 
             with open(env_file, "w") as file:
                 print("\nNão foi encontrado arquivo .env.example, criando um básico")
-                f.write("APP_NAME=SG-Yia\nAPP_ENV=local\nAPP_KEY=\nDB_CONNECTION=mysql\n")
+                file.write("APP_NAME=SG-Yia\nAPP_ENV=local\nAPP_KEY=\nDB_CONNECTION=mysql\n")
                 print("\nArquivo .env básico criado")
     else:
         print("\nArquivo .env já existe, pulando a criação")
