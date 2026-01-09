@@ -19,7 +19,7 @@ class TransacaoService{
 
     public function getMensal(int $ano, int $mes){
         return Transacao::whereYear('data', $ano)->whereMonth('data', $mes)->where('usuario_id', $this->idUser)
-                        ->orderBy('created_at', 'desc')->limit(15)->get();
+                        ->orderBy('created_at', 'desc')->paginate(15);
     }
 
     public function inserir(float $valor, string $tipo = 'receita', string $categoria, string $descricao, $data){
@@ -89,17 +89,55 @@ class TransacaoService{
 
     /**
      * Pega os valoes, com base no tipo[receita, despesa], das transação realizadas 
-     * em determinado periodo[mes, ano, dia, todo] soma e retorna os totais
+     * em determinado periodo[mensal, anaul, diario, todo] soma e retorna os totais
      * Esses totais são gerados agrupando os valores de acordo com alguma coluna
      * @param string $tipo - [receita, despesa]
      * @param string $coluna [descricao, categoria] - determina se os valoes devem ser baseado em categoria ou descricao
-     */
-    public function resumoTransacoes(string $tipo, string $coluna = 'descricao'){
+     * @param string $periodo - permite define o periodo de tempo para o qual queremos os valores, default mensal
+     * @param int|null $ano, $mes, $dia - permite definir o filtro do periodo escolhido, valor default é null
+    */
+    public function resumoTransacoes(string $tipo, string $coluna = 'descricao', int|null $ano = null, int|null $mes = null, int|null $dia = null, string $periodo = "mensal"){
         //checar coluna && tipo
         $coluna = ( $coluna != 'descricao') ? 'categoria' : $coluna ;
         $tipo = ( $tipo != 'receita' ) ? 'despesa': $tipo;
 
-        return Transacao::select($coluna, DB::raw("SUM(valor) as total"))->groupBy($coluna)
-                        ->where('usuario_id', $this->idUser)->where('tipo', $tipo)->get();
+        switch ($periodo) {
+            case 'diario':
+                if($dia == null || $ano == null || $mes == null):
+                    return False;
+                endif;
+                return Transacao::query()->select($coluna, DB::raw("SUM(valor) as total"))->whereYear('data', $ano)
+                            ->whereMonth('data', $mes)->whereDay('data', $dia)->where('usuario_id', $this->idUser)
+                            ->where('tipo', $tipo)->groupBy($coluna)->orderBy($coluna)->get();
+                break;
+            
+            case 'mensal':
+                if($mes == null || $ano == null):
+                    return False;
+                endif;
+
+                return Transacao::query()->select($coluna, DB::raw("SUM(valor) as total"))
+                            ->whereYear('data', $ano)->whereMonth('data', $mes)->where('usuario_id', $this->idUser)
+                            ->where('tipo', $tipo)->groupBy($coluna)->orderBy($coluna)->get();
+                break;
+            
+            case 'anual':
+                if($ano == null):
+                    return False;
+                endif;
+
+                return Transacao::query()->select($coluna, DB::raw("SUM(valor) as total"))
+                            ->whereYear('data', $ano)->where('usuario_id', $this->idUser)->where('tipo', $tipo)
+                            ->groupBy($coluna)->orderBy($coluna)->get();
+                break;
+            
+            case 'todo':
+                return Transacao::query()->select("SUM(valor) as total")->where('usuario_id', $this->idUser)
+                           ->groupby($coluna)->orderBy($coluna)->get();
+
+            default:
+                return False;
+                break;
+        }
     }
 }

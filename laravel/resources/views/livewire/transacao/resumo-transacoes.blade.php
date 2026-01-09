@@ -8,7 +8,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if(empty($receitas))
+                @if(empty($receitas) || $receitas == False)
                    <tr>
                        <td>Vazio</td>
                    </tr>
