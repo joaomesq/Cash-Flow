@@ -1,3 +1,13 @@
-<div>
-    {{-- In work, do what you enjoy. --}}
-</div>
+<section>
+    <div>
+        <h2>Receita: <span class="text-green-500">AOA {{ number_format($receita, 2, ',', '.') }}</span></h2>
+    </div>
+
+    <div>
+        <h2>Despesa: <span class="text-red-500">AOA {{ number_format($despesa, 2, ',', '.') }}</span></h2>
+    </div>
+
+    <div>
+        <h2>Saldo: <span class="{{ ($saldo >= 0)? 'text-green-500': 'text-red-500' }}">AOA {{ number_format($saldo, 2, ',', '.') }}</span></h2>
+    </div>
+</section>
