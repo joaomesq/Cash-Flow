@@ -114,8 +114,8 @@ class TransacaoService{
                 break;
             
             case 'todo':
-                return Transacao::query()->select("SUM(valor) as total")->where('usuario_id', $this->idUser)
-                           ->groupby($coluna)->orderBy($coluna)->get();
+                return Transacao::query()->select($coluna, DB::raw("SUM(valor) as total"))->where('usuario_id', $this->idUser)
+                            ->where('tipo', $tipo)->groupby($coluna)->orderBy($coluna)->get();
 
             default:
                 return False;
