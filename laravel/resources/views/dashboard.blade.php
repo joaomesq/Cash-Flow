@@ -9,7 +9,12 @@
         <div class="py-6 bg-white">
             <h2>Totais gerados</h2>
             <livewire:valores.totais />
-        </div>    
+        </div>
+        
+        <div>
+            <h2>Totais por periodo</h2>
+            <livewire:valores.totais-perido />
+        </div>
 
         <div class="py-6 bg-white">
             <h2>Últimas transações</h2>
