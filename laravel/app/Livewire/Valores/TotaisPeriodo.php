@@ -18,7 +18,7 @@ class TotaisPeriodo extends Component
     public $saldo;
 
     public function mount(){
-        $this->periodo = "mensal";
+        $this->periodo = "anual";
         $this->ano = now()->format("Y");
         $this->mes = now()->format("m");
         $this->dia = now()->format("d");
@@ -61,9 +61,12 @@ class TotaisPeriodo extends Component
             
             case 'anual':
                 $this->data = $this->ano;
+                break;
             
             case 'diario':
                 $this->data = $this->dia." - ".$this->mes." - ".$this->ano;
+                break;
+
             default:
                 $this->data = "Todo";
                 break;
