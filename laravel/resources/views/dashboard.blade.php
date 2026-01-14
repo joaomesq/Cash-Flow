@@ -11,7 +11,7 @@
             <livewire:valores.totais />
         </div>
         
-        <div classs="py-6 bg-white">
+        <div class="py-6 bg-white">
             <h2>Totais por periodo</h2>
             <livewire:valores.totais-periodo />
         </div>
