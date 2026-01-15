@@ -29,7 +29,8 @@ class TotaisPeriodo extends Component
         $this->calcularReceita();
         $this->calcularDespesa();
         $this->saldo = $this->receita - $this->despesa;
-        
+        $this->montarData();
+
         return view('livewire.valores.totais-periodo');
 
     }
@@ -53,5 +54,19 @@ class TotaisPeriodo extends Component
     }
 
     private function montarData(){
+        switch ($this->periodo) {
+            case 'mensal':
+                $this->data = $this->mes." - ".$this->ano;
+                break;
+            
+            case 'anual':
+                $this->data = $this->ano;
+            
+            case 'diario':
+                $this->data = $this->dia." - ".$this->mes." - ".$this->ano;
+            default:
+                $this->data = "Todo";
+                break;
+        }
     }
 }
