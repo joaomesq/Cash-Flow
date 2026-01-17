@@ -6,6 +6,8 @@ use App\Services\TransacaoService;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
+use function Symfony\Component\String\b;
+
 class TotaisPeriodo extends Component
 {
     public $periodo;
@@ -32,7 +34,6 @@ class TotaisPeriodo extends Component
         $this->montarData();
 
         return view('livewire.valores.totais-periodo');
-
     }
 
     private function calcularReceita(){
@@ -85,8 +86,10 @@ class TotaisPeriodo extends Component
             return;
         endif; 
 
-        if($direcao == "next"):
+        if(strtolower($direcao) == "next"):
             $this->nextPeriodo();
+        elseif(strtolower($direcao) == "back"):
+            $this->backPeriodo();
         endif;
     }
     private function nextPeriodo(){
@@ -103,6 +106,22 @@ class TotaisPeriodo extends Component
             case 'todo':
                 $this->periodo = "Diario";
                 break;
+        }
+    }
+    private function backPeriodo(){
+        switch (strtolower($this->periodo)) {
+            case 'todo':
+                $this->periodo = "Anual";
+                break;
+            case 'anual':
+                $this->periodo = "Mensal";
+                break;
+            case 'mensal':
+                $this->periodo = "Diario";
+                break;
+            case 'diario':
+               $this->periodo = "Todo";
+               break;
         }
     }
 }
