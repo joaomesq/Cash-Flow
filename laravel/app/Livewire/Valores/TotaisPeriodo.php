@@ -124,4 +124,34 @@ class TotaisPeriodo extends Component
                break;
         }
     }
+
+    public function alterarData(string $direcao = "next"){
+        if(strtolower($direcao) == "next"):
+            if(strtolower($this->periodo) == "mensal"):
+                $this->nextMont();
+            endif;
+        elseif(strtolower($direcao) == 'back'):
+            if(strtolower($this->periodo) == 'mensal'):
+                $this->backtMont();
+            endif;
+        endif;
+    }
+    
+    private function nextMont(){
+        if($this->mes >= 12):
+            $this->mes = 01;
+            $this->ano += 1;
+        elseif($this->mes < 12 & $this->mes >= 1):
+            $this->mes += 1;
+        endif;
+    }
+    private function backtMont(){
+        if($this->mes <= 1):
+            $this->mes = 12;
+            $this->ano -= 1;
+        elseif($this->mes > 1 & $this->mes <= 12):
+            $this->mes -= 1;
+        endif;
+    }
+
 }
