@@ -12,6 +12,7 @@
         <button class="border p-2" wire:click="alterarData('next')">></button>
         </div>
     </div>
+
     <div>
         <h2>Receita: <span class="text-green-500">AOA {{ number_format($receita, 2, ',', '.') }}</span></h2>
     </div>

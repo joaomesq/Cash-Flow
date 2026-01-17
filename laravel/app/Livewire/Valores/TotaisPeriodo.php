@@ -129,39 +129,47 @@ class TotaisPeriodo extends Component
         if(strtolower($direcao) == "next"):
             switch (strtolower($this->periodo)) {
                 case 'mensal':
-                    $this->nextMont();
+                    $this->nextMonth();
                     break;
                 
                 case 'anual':
                     $this->alterarAno(direcao: "next");
                     break;
+                
+                case 'diario':
+                    $this->alterarDia("next");
+                    break;
             }
         elseif(strtolower($direcao) == 'back'):
             switch (strtolower($this->periodo)) {
                 case 'mensal':
-                    $this->backtMont();
+                    $this->backtMonth();
                     break;
                 
                 case 'anual':
                     $this->alterarAno(direcao: 'back');
+                    break;
+                
+                case 'diario':
+                    $this->alterarDia("back");
                     break;
             }
         endif;
         
     }
     
-    private function nextMont(){
+    private function nextMonth(){
         if($this->mes >= 12):
             $this->mes = 01;
-            $this->ano += 1;
+            $this->alterarAno("next");
         elseif($this->mes < 12 & $this->mes >= 1):
             $this->mes += 1;
         endif;
     }
-    private function backtMont(){
+    private function backtMonth(){
         if($this->mes <= 1):
             $this->mes = 12;
-            $this->ano -= 1;
+            $this->alterarAno("back");
         elseif($this->mes > 1 & $this->mes <= 12):
             $this->mes -= 1;
         endif;
@@ -174,5 +182,31 @@ class TotaisPeriodo extends Component
             $this->ano -= 1;
         endif;
     }
+    
+    private function alterarDia(string $direcao = "next"){
+        //pegar número de dias do mês
+        $numeroDeDias = cal_days_in_month(CAL_GREGORIAN, $this->mes, $this->ano);
+        
+        switch(strtolower($direcao)){
+            case 'next':
+                if($this->dia >= $numeroDeDias):
+                    $this->nextMonth();
+                    $this->dia = 01;
+                else:
+                    $this->dia += 1;
+                endif;
 
+                break;
+            
+            case 'back':
+                if($this->dia <= 1):
+                    $this->backtMonth();
+                    $this->dia = cal_days_in_month(CAL_GREGORIAN, $this->mes, $this->ano);
+                else:
+                    $this->dia -= 1;
+                endif;
+
+                break;
+        }
+    }
 }
