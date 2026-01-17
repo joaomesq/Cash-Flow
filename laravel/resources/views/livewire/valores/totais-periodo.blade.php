@@ -1,7 +1,7 @@
 <section>
     <div>
         <div class="periodo p-2">
-            <button><</button>
+            <button class="border p-2" wire:click="trocarPeriodo('back')"><</button>
             <h2>Periodo: {{ $periodo }}</h2>
             <button class="border p-2" wire:click="trocarPeriodo('next')">></button>
         </div>
