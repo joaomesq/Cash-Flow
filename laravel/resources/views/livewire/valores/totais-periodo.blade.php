@@ -1,6 +1,10 @@
 <section>
     <div>
-        <h2>Periodo: {{ $periodo }}</h2>
+        <div class="periodo p-2">
+            <button><</button>
+            <h2>Periodo: {{ $periodo }}</h2>
+            <button class="border p-2" wire:click="trocarPeriodo('next')">></button>
+        </div>
         <h2>Data: {{ $data }}</h2>
     </div>
     <div>

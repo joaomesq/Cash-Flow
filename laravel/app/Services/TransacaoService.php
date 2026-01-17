@@ -83,7 +83,7 @@ class TransacaoService{
         $coluna = ( $coluna != 'descricao') ? 'categoria' : $coluna ;
         $tipo = ( $tipo != 'receita' ) ? 'despesa': $tipo;
 
-        switch ($periodo) {
+        switch (strtolower($periodo)) {
             case 'diario':
                 if($dia == null || $ano == null || $mes == null):
                     return False;

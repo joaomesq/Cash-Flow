@@ -18,7 +18,7 @@ class TotaisPeriodo extends Component
     public $saldo;
 
     public function mount(){
-        $this->periodo = "anual";
+        $this->periodo = "Mensal";
         $this->ano = now()->format("Y");
         $this->mes = now()->format("m");
         $this->dia = now()->format("d");
@@ -46,6 +46,10 @@ class TotaisPeriodo extends Component
     private function calcularTotal(string $tipo){
         $transacoes = (new TransacaoService(userId: Auth::user()->id))->resumoTransacoes(tipo: $tipo, ano: $this->ano, mes: $this->mes, dia: $this->dia, periodo: $this->periodo);
         
+        if(!$transacoes):
+            return 0;
+        endif;
+
         $total = 0;
         foreach($transacoes as $transacao){
             $total += $transacao->total;
@@ -54,7 +58,7 @@ class TotaisPeriodo extends Component
     }
 
     private function montarData(){
-        switch ($this->periodo) {
+        switch (strtolower($this->periodo)) {
             case 'mensal':
                 $this->data = $this->mes." - ".$this->ano;
                 break;
@@ -69,6 +73,35 @@ class TotaisPeriodo extends Component
 
             default:
                 $this->data = "Todo";
+                break;
+        }
+    }
+
+    public function trocarPeriodo(string $direcao){
+        $listaPeriodos = ['anual', 'mensal', 'diario', 'todo'];
+        //Checar periodo
+        if(!in_array(strtolower($this->periodo), $listaPeriodos)):
+            $this->periodo == "Mensal";
+            return;
+        endif; 
+
+        if($direcao == "next"):
+            $this->nextPeriodo();
+        endif;
+    }
+    private function nextPeriodo(){
+        switch (strtolower($this->periodo)) {
+            case 'diario':
+                $this->periodo = "Mensal";
+                break;
+            case 'mensal':
+                $this->periodo = "Anual";
+                break;
+            case 'anual':
+                $this->periodo = "Todo";
+                break;
+            case 'todo':
+                $this->periodo = "Diario";
                 break;
         }
     }
