@@ -127,14 +127,27 @@ class TotaisPeriodo extends Component
 
     public function alterarData(string $direcao = "next"){
         if(strtolower($direcao) == "next"):
-            if(strtolower($this->periodo) == "mensal"):
-                $this->nextMont();
-            endif;
+            switch (strtolower($this->periodo)) {
+                case 'mensal':
+                    $this->nextMont();
+                    break;
+                
+                case 'anual':
+                    $this->alterarAno(direcao: "next");
+                    break;
+            }
         elseif(strtolower($direcao) == 'back'):
-            if(strtolower($this->periodo) == 'mensal'):
-                $this->backtMont();
-            endif;
+            switch (strtolower($this->periodo)) {
+                case 'mensal':
+                    $this->backtMont();
+                    break;
+                
+                case 'anual':
+                    $this->alterarAno(direcao: 'back');
+                    break;
+            }
         endif;
+        
     }
     
     private function nextMont(){
@@ -151,6 +164,14 @@ class TotaisPeriodo extends Component
             $this->ano -= 1;
         elseif($this->mes > 1 & $this->mes <= 12):
             $this->mes -= 1;
+        endif;
+    }
+
+    private function alterarAno(string $direcao = "next"){
+        if(strtolower($direcao) == "next" ):
+            $this->ano += 1;
+        elseif(strtolower($direcao) == "back"):
+            $this->ano -= 1;
         endif;
     }
 
