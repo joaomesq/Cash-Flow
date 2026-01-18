@@ -11,22 +11,22 @@
             <livewire:valores.totais />
         </div>
         
-        <div class="py-6 bg-white">
+        <div class="py-6 bg-white mt-2">
             <h2>Valores por periodo por periodo</h2>
             <livewire:valores.totais-periodo />
 
-            <div>
+            <div class="mt-2">
                 <h2>Percentagens</h2>
                 <livewire:valores.percentagens />
             </div>
         </div>
 
-        <div class="py-6 bg-white">
+        <div class="py-6 bg-white mt-2">
             <h2>Últimas transações</h2>
             <livewire:transacao.ultimas-transacoes />
         </div>
         
-        <div class="py-6 bg-white">
+        <div class="py-6 bg-white mt-2">
             <h2>Valores por transação</h2>
             <livewire:transacao.resumo-transacoes />
         </div>
