@@ -91,6 +91,9 @@ class TotaisPeriodo extends Component
         elseif(strtolower($direcao) == "back"):
             $this->backPeriodo();
         endif;
+
+        //disparando evento
+        $this->dispatch("alterar-periodo", periodo: $this->periodo);
     }
     private function nextPeriodo(){
         switch (strtolower($this->periodo)) {
