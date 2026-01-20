@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <section class="main">
+    <section class="main px-4">
         <div class="py-6 bg-white">
             <h2>Total de gastos e receitas e saldo disponível</h2>
             <livewire:valores.totais />
