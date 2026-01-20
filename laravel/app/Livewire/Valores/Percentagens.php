@@ -12,8 +12,8 @@ class Percentagens extends Component
     public $receita;
     public $despesa;
     
-    private $ano, $mes, $dia;
-    private $periodo;
+    public $ano, $mes, $dia;
+    public $periodo;
 
     public function mount(){
         $this->periodo = 'mensal';
@@ -42,7 +42,7 @@ class Percentagens extends Component
     }
 
     private function pegarTotal(string $tipo){
-        $transacoes = (new TransacaoService(userId: Auth::user()->id))->resumoTransacoes(tipo: strtolower($tipo), ano: $this->ano, mes: $this->mes, dia: $this->dia, periodo: $this->periodo);
+        $transacoes = (new TransacaoService(userId: Auth::user()->id))->resumoTransacoes(tipo: strtolower($tipo), ano: $this->ano, mes: $this->mes, dia: $this->dia, periodo: strtolower($this->periodo));
         
         if(!$transacoes):
             return 0.00;
@@ -57,6 +57,31 @@ class Percentagens extends Component
 
     #[On('alterar-periodo')]
     public function atualizarPeriodo(string $periodo){
-        $this->periodo = $periodo;
+        if(strtolower($this->periodo) != $periodo):
+            $this->periodo = $periodo;
+        endif;
     }
+
+    #[On('alterar-ano')]
+    public function atualizarAno(int $ano){
+        if($this->ano != $ano):
+            $this->ano = $ano;
+        endif;
+    }
+
+    #[On('alterar-mes')]
+    public function atualizarMes(int $mes){
+        if($this->mes != $mes):
+            $this->mes = $mes;
+        endif;
+    }
+
+    #[On('alterar-dia')]
+    public function atualizarDia(int $dia){
+        if($this->dia != $dia){
+            $this->dia = $dia;
+        }
+    }
+
+
 }

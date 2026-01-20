@@ -168,6 +168,9 @@ class TotaisPeriodo extends Component
         elseif($this->mes < 12 & $this->mes >= 1):
             $this->mes += 1;
         endif;
+
+        //disparando evento
+        $this->dispatch('alterar-mes', mes: $this->mes);
     }
     private function backtMonth(){
         if($this->mes <= 1):
@@ -176,14 +179,20 @@ class TotaisPeriodo extends Component
         elseif($this->mes > 1 & $this->mes <= 12):
             $this->mes -= 1;
         endif;
+
+        //disparando evento
+        $this->dispatch('alterar-mes', mes: $this->mes);
     }
 
-    private function alterarAno(string $direcao = "next"){
+    public function alterarAno(string $direcao = "next"){
         if(strtolower($direcao) == "next" ):
             $this->ano += 1;
         elseif(strtolower($direcao) == "back"):
             $this->ano -= 1;
         endif;
+
+        //diparando evento
+        $this->dispatch('alterar-ano', ano: $this->ano);
     }
     
     private function alterarDia(string $direcao = "next"){
@@ -211,5 +220,7 @@ class TotaisPeriodo extends Component
 
                 break;
         }
+
+        $this->dispatch('alterar-dia', dia: $this->dia);
     }
 }
