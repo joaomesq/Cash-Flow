@@ -2,9 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransacaoController;
-use App\Models\Transacao;
-use App\Services\TransacaoService;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
