@@ -3,16 +3,14 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <section class="mt-6">
-        <div class="text w-[300px] md:w-[400px] h-[180px] md:h-[150px] text-white px-6">
-            <h2 class="font-bold text-lg mb-2">Cash Flow - Chanax</h2>
-            <p>"Bem-vindo! Aqui você o controle total das entradas e saídas do seu dinheiro.
-                Estamos aqui para ajudar a tronar sua financeira mais organizada e eficiente"
+        <div class="text w-[300px] md:w-[450px] h-[180px] md:h-[150px] text-white px-6">
+            <h2 class="font-semibold text-lg mb-2">Cash Flow - Chanax</h2>
+            <p>"Bem-vindo! Aqui você tem o controle da movimentação do seu dinheiro.
+                Estamos aqui para ajudar a tronar sua vida financeira mais organizada e eficiente"
             </p>
         </div>
 
         <div class="form text-black bg-white px-8 py-4">
-            <h2 class="mb-4 text-lg font-medium">Login</h2>
-
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 
