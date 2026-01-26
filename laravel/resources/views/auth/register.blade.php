@@ -13,29 +13,29 @@
 
                 <!-- Name -->
                 <div>
-                    <label for="name" class="text-black">Nome</label>
-                    <x-text-input id="name" class="block mt-1 w-full dark:bg-white" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                    <label for="name" class="text-gray-600">Nome</label>
+                    <x-text-input id="name" class="block mt-1 w-full dark:bg-white dark:text-black" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
 
                 <!-- Email Address -->
                 <div class="mt-4">
-                    <label for="email" class="text-black">Email</label>
-                    <x-text-input id="email" class="block mt-1 w-full dark:bg-white" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                    <label for="email" class="text-gray-600">Email</label>
+                    <x-text-input id="email" class="block mt-1 w-full dark:bg-white dark:text-black" type="email" name="email" :value="old('email')" required autocomplete="username" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
                 <div class="mt-4">
-                    <label for="password" class="text-black">Senha</label>
-                    <x-text-input id="password" class="block mt-1 w-full dark:bg-white" type="password" name="password" required autocomplete="new-password" />
+                    <label for="password" class="text-gray-600">Senha</label>
+                    <x-text-input id="password" class="block mt-1 w-full dark:bg-white dark:text-black" type="password" name="password" required autocomplete="new-password" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <!-- Confirm Password -->
                 <div class="mt-4">
-                    <label for="password_confirmation" class="text-black">Confirmar Senha</label>
-                    <x-text-input id="password_confirmation" class="block mt-1 w-full dark:bg-white"
+                    <label for="password_confirmation" class="text-gray-600">Confirmar Senha</label>
+                    <x-text-input id="password_confirmation" class="block mt-1 w-full dark:bg-white dark:text-black"
                             type="password" name="password_confirmation" required autocomplete="new-password" />
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
