@@ -37,7 +37,7 @@
 
                     <label for="forgot_password px-2">
                         @if (Route::has('password.request'))
-                            <a class="underline text-sm text-black hover:text-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
+                            <a class="underline text-sm text-black hover:text-gray-700 rounded-md" href="{{ route('password.request') }}">
                                 {{ __('Esqueceu a sua password?') }}
                             </a>
                         @endif
