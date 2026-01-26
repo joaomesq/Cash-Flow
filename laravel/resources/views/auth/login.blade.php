@@ -19,14 +19,14 @@
                 <!-- Email Address -->
                 <div>
                     <label for="email">Email</label>
-                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                    <x-text-input id="email" class="block mt-1 w-full dark:bg-white" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
                 
                 <!-- Password -->
                 <div class="mt-4">
                     <label for="password">Password</label>
-                    <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                    <x-text-input id="password" class="block mt-1 w-full dark:bg-white" type="password" name="password" required autocomplete="current-password" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
@@ -50,7 +50,7 @@
                     <button class="w-full dark:bg-gray-300 dark:hover:bg-gray-200 text-black rounded p-2 mb-2">Log in</button>
 
                     <p class="text-center">
-                        <a class="text-sm text-black hover:text-gray-500 dark:hover:text-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
+                        <a class="text-sm text-black hover:text-gray-500 dark:hover:text-gray-500" href="{{ route('register') }}">
                             {{ __('Criar Conta') }}
                         </a>
                     </p>
