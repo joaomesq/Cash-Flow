@@ -13,7 +13,7 @@ def rodar_comando(comando, cwd = None):
 
 def instalar_dependencias_php():
     #Instalando as dependência php via composer
-    rodar_comando("composer install")
+    rodar_comando("docker compose exec app install")
     print("\nDependências php instaladas")
 
 def instalar_dependencias_js():
@@ -34,7 +34,7 @@ def instalar_dependencias_python():
 
 def instalar_dependencias():
     instalar_dependencias_php()
-    instalar_dependencias_js()
+    #instalar_dependencias_js()
     instalar_dependencias_python()
 
 def criar_arquivo_env():
@@ -63,14 +63,14 @@ def criar_arquivo_env():
 def gerar_chave_laravel():
     #Gera chave da aplicação laravel
     print("\nCriando chave da aplicação")
-    rodar_comando("php artisan key:generate")
+    rodar_comando("docker compose exec app php artisan key:generate")
     print("\nChave da aplicação criada\n")
 
 def run_migration(root_dir):
     print("\nExecutando as migrações e seeds")
     try:
-        rodar_comando("php artisan migrate")
-        rodar_comando("php artisan db:seed")
+        rodar_comando("docker compose exec app php artisan migrate")
+        rodar_comando("docker compose exec app php artisan db:seed")
         print("\nMigrações e seeds executadas com sucesso")
     except:
         print("\nErro ao rodar as migrações, provavelmente o banco não está criado a variaveis de ambiente não foram configuradas, \n Faça manualmente")
@@ -78,7 +78,7 @@ def run_migration(root_dir):
 def criar_link_simbolico():
     #Criar o link entre a pasta storage/app/public e a pasta public/storage
     print("\nCriando link simbólico")
-    rodar_comando("php artisan storage:link")
+    rodar_comando("docker compose exec app php artisan storage:link")
     print("\nLink Simbólico criado")
 
 if __name__ == '__main__':
