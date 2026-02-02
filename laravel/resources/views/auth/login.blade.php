@@ -17,14 +17,14 @@
                 <!-- Email Address -->
                 <div>
                     <label class="text-gray-600" for="email">Email</label>
-                    <x-text-input id="email" class="block mt-1 w-full dark:bg-white dark:text-black" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                    <x-text-input id="email" class="block mt-1 w-full dark:bg-white dark:text-gray-900" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
                 
                 <!-- Password -->
                 <div class="mt-4">
                     <label for="password" class="text-gray-600">Password</label>
-                    <x-text-input id="password" class="block mt-1 w-full dark:bg-white dark:text-black" type="password" name="password" required autocomplete="current-password" />
+                    <x-text-input id="password" class="block mt-1 w-full dark:bg-white dark:text-gray-900" type="password" name="password" required autocomplete="current-password" />
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
