@@ -1,6 +1,6 @@
 <x-app-layout>
     <section class="main p-4">
-        <div class="bg-white">
+        <div class="w-full">
             <livewire:transacao.resumo-mensal />
         </div>
 
