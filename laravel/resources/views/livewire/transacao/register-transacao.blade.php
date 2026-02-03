@@ -1,7 +1,7 @@
 <section class="insert-transacao p-4">
     <div>
         <form wire:submit.prevent="salvar">
-            <fieldset class="grid grid-cols-2 gap-4 text-gray-300">
+            <fieldset class="grid grid-cols-2 lg:grid-cols-5 lg:justify-items-center lg:items-center gap-4 text-gray-300">
                 <div>
                     <label>Descricao</label>
                     <input class="w-full rounded bg-transparent" type="text" name="input-descricao" wire:model="descricao" placeholder="Descricação da transação" required>
@@ -39,7 +39,7 @@
                     @enderror
                 </div>
 
-                <div class="flex items-center gap-12">
+                <div class="flex items-center gap-12 lg:mt-4">
                     <p>
                         <input class="p-2" type="radio" name="input-tipo" wire:model="tipo" value="receita"><label>Entrada</label>
                     </p>
@@ -53,7 +53,7 @@
                 </div>
             </fieldset>
 
-            <div class="text-end text-white mt-2">
+            <div class="text-end text-white mt-2 lg:mt-4">
                 <button type="submit" class="bg-green-800 p-2 rounded">Adicionar</button>
             </div>
         </form>
