@@ -1,10 +1,10 @@
 <section class="insert-transacao p-4">
     <div>
         <form wire:submit.prevent="salvar">
-            <fieldset>
+            <fieldset class="grid grid-cols-2 gap-4 text-gray-300">
                 <div>
                     <label>Descricao</label>
-                    <input type="text" name="input-descricao" wire:model="descricao" placeholder="Descricação da transação" required>
+                    <input class="w-full rounded bg-transparent" type="text" name="input-descricao" wire:model="descricao" placeholder="Descricação da transação" required>
                     @error('descricao')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                     @enderror
@@ -12,7 +12,7 @@
 
                 <div>
                     <label>Categoria</label>
-                    <select wire:model.live="categoria" name="select-categoria">
+                    <select class="w-full rounded bg-transparent" wire:model.live="categoria" name="select-categoria">
                         <option value="">Selecione</option>
                         @foreach($categorias as $key => $value)
                             <option value="{{ $key }}">{{ $value }}</option>
@@ -25,7 +25,7 @@
 
                 <div>
                     <label>Data</label>
-                    <input type="date" name="input-data" wire:model="data" required>
+                    <input class="w-full rounded bg-transparent" type="date" name="input-data" wire:model="data" required>
                     @error('data')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                     @enderror
@@ -33,19 +33,19 @@
 
                 <div>
                     <label>Valor</label>
-                    <input type="text" name="input-valor" wire:model="valor" step="0.01">
+                    <input type="text" class="w-full rounded bg-transparent" name="input-valor" wire:model="valor" step="0.01" placeholder="Valor">
                     @error('valor')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <div>
+                <div class="flex items-center gap-12">
                     <p>
-                        <input type="radio" name="input-tipo" wire:model="tipo" value="receita"><label>Entrada</label>
+                        <input class="p-2" type="radio" name="input-tipo" wire:model="tipo" value="receita"><label>Entrada</label>
                     </p>
 
                     <p>
-                        <input type="radio" name="input-tipo" wire:model="tipo" value="despesa"><label>Saída</label>
+                        <input class="p-2" type="radio" name="input-tipo" wire:model="tipo" value="despesa"><label>Saída</label>
                     </p>
                     @error('tipo')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
@@ -53,8 +53,8 @@
                 </div>
             </fieldset>
 
-            <div>
-                <button type="submit">Inserir</button>
+            <div class="text-end text-white mt-2">
+                <button type="submit" class="bg-green-800 p-2 rounded">Adicionar</button>
             </div>
         </form>
     </div>
