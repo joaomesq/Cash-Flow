@@ -8,7 +8,7 @@
             <livewire:transacao.register-transacao />
         </div>
 
-        <div class="bg-dark mt-4">
+        <div class="w-full border border-gray-800 rounded p-2 mt-4">
             <livewire:transacao.lista-mensal />
         </div>
     </section>
