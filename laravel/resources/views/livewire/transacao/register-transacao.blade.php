@@ -1,7 +1,7 @@
 <section class="insert-transacao p-4">
     <div>
         <form wire:submit.prevent="salvar">
-            <fieldset class="grid grid-cols-2 lg:grid-cols-5 lg:justify-items-center lg:items-center gap-4 text-gray-300">
+            <fieldset class="grid grid-cols-2 lg:grid-cols-5 lg:justify-items-center lg:items-center gap-4 dark:text-gray-300">
                 <div>
                     <label>Descricao</label>
                     <input class="w-full rounded bg-transparent" type="text" name="input-descricao" wire:model="descricao" placeholder="Descricação da transação" required>
@@ -15,7 +15,7 @@
                     <select class="w-full rounded bg-transparent" wire:model.live="categoria" name="select-categoria">
                         <option value="">Selecione</option>
                         @foreach($categorias as $key => $value)
-                            <option value="{{ $key }}">{{ $value }}</option>
+                            <option value="{{ $key }}" class="bg-transparent">{{ $value }}</option>
                         @endforeach
                     </select>
                     @error('categoria')
