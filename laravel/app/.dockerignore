@@ -1,0 +1,80 @@
+#git
+.git
+.gitignore
+.gitattributes
+
+#CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+.circleci
+
+#Documentation
+README.md
+docs/
+CHANGELOG.md 
+LICENSE
+*md
+
+# Node.js
+node_modules/
+npm-debug.log
+.npm 
+
+# Python
+__pycache__/
+*.py[cod]
+*.$py.class
+*.so 
+.Python
+env/
+venv/
+ENV/
+.venv 
+pip-log.txt
+pytes_cache/
+.coverage
+htmlcov/
+
+# ID/EDITO-FILE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# logs
+logs/
+*.log
+
+# Testing
+test/
+tests/
+spec/
+coverage/
+.nync_output/
+ 
+# Build artifacts
+dist/
+build/
+*.egg-info/
+target/
+
+# Enviroment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Docker
+Dockerfile*
+docker-compose.yml
+.dockerignore
+
+# Temprary
+tmp/
+temp/
+*.tmps
