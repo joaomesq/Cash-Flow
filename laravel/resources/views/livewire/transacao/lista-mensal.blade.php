@@ -25,4 +25,5 @@
             @endif
         </tbody>
     </table>
+    {{ $transacoes->links() }}
 </section>
