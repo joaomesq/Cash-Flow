@@ -40,4 +40,9 @@ class ListaMensal extends Component
         }
 
     }
+
+    #[On('transacao-deletada')]
+    public function atualizarListaAfterDelete(){
+        $this->resetPage();
+    }
 }

@@ -56,8 +56,8 @@ class Listar extends Component
     }
 
     #[On('transacao-deletada')]
-    public function atualizarTransacaos(){
-        $this->limparFiltros();
+    public function atualizarTransacoes(){
+        $this->resetPage();
     }
 
     public function render()
