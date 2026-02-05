@@ -4,6 +4,7 @@ namespace App\Livewire\Transacao;
 
 use App\Services\TransacaoService;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -52,6 +53,11 @@ class Listar extends Component
         $this->tipo = '';
 
         $this->resetPage();
+    }
+
+    #[On('transacao-deletada')]
+    public function atualizarTransacaos(){
+        $this->limparFiltros();
     }
 
     public function render()

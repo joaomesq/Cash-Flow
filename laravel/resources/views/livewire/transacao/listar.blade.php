@@ -66,7 +66,7 @@
                             <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->data }}</td>
                             <td class="{{ ($transacao->tipo == 'receita')? 'text-green-500': 'text-red-500' }} px-6 py-4 whitespace-nowrap capitalize">AO {{ $transacao->valor }}</td>
                             <td class="px-6 py-4 whitespace-nowrap capitalize">
-                                <livewire:transacao.delete-transacao />
+                                <livewire:transacao.delete-transacao :id="$transacao->id"/>
                             </td>
                         </tr>
                     @endforeach
