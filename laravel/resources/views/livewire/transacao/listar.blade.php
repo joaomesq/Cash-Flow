@@ -1,42 +1,44 @@
 <section>
     <div class="filtros border border-gray-600 rounded p-4 mb-2">
-        <p>
-            <label>Descrição</label>
-            <input type="text" wire:model.live="descricao" placeholder="Descrição">
-        </p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 items-center dark:text-gray-300 justify-items-center">
+            <p class="w-full">
+                <label>Descrição</label>
+                <input class="w-full dark:bg-transparent rounded dark:text-gray-200" type="text" wire:model.live="descricao" placeholder="Descrição">
+            </p>
 
-        <p>
-            <label>Categoria</label>
-            <input type="text" wire:model.live="categoria" placeholder="Categoria">
-        </p>
+            <p class="w-full">
+                <label>Categoria</label>
+                <input class="w-full dark:bg-transparent rounded dark:text-gray-200" type="text" wire:model.live="categoria" placeholder="Categoria">
+            </p> 
 
-        <p>
-            <label>Data Início</label>
-            <input type="date" wire:model.live="dataInicio">
-        </p>
+            <p class="w-full">
+                <label>Data Início</label>
+                <input class="w-full dark:bg-transparent rounded dark:text-gray-200" type="date" wire:model.live="dataInicio">
+            </p>
 
-        <p>
-            <label>Data Fim</label>
-            <input type="date" wire:model.live="dataFim">
-        </p>
+            <p class="w-full">
+                <label>Data Fim</label>
+                <input class="w-full dark:bg-transparent rounded dark:text-gray-200" type="date" wire:model.live="dataFim">
+            </p>
 
-        <p>
-            <label>Tipo</label>
-            <select wire:model.live="tipo">
-                <option value="">Selecione</option>
-                @foreach($tipos as $key => $value)
-                    <option value="{{ $key }}">{{ $value }}</option>
-                @endforeach
-            </select>
-        </p>
+            <p class="w-full">
+                <label>Tipo</label>
+                <select class="w-full dark:bg-transparent rounded dark:text-gray-200" wire:model.live="tipo">
+                    <option value="">Selecione</option>
+                    @foreach($tipos as $key => $value)
+                        <option value="{{ $key }}">{{ $value }}</option>
+                    @endforeach
+                </select>
+            </p>
         
-        <p>
-            <label>Valor</label>
-            <input type="text" wire:model.live="valor" placeholder="Valor">
-        </p>
+            <p class="w-full">
+                <label>Valor</label>
+                <input class="w-full dark:bg-transparent rounded dark:text-gray-200" type="text" wire:model.live="valor" placeholder="Valor">
+            </p>
+        </div>
 
-        <p>
-            <button wire:click="limparFiltros">Limpar Filtros</button>
+        <p class="text-end mt-4">
+            <button class="uppercase bg-blue-500 text-white p-2 rounded" wire:click="limparFiltros">Limpar Filtros</button>
         </p>
     </div>
 
