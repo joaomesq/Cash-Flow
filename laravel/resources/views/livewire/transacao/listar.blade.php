@@ -50,6 +50,7 @@
                     <th class="px-6  py-3 text-left text-xs  tracking-wider">Categoria</th>
                     <th class="px-6  py-3 text-left text-xs  tracking-wider">Data</th>
                     <th class="px-6  py-3 text-left text-xs  tracking-wider">Valor</th>
+                    <th class="px-5 py-3 text-lef text-xs tracking-wider"></th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:bg-gray-900 bg-white">
@@ -64,6 +65,9 @@
                             <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->categoria }}</td>
                             <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->data }}</td>
                             <td class="{{ ($transacao->tipo == 'receita')? 'text-green-500': 'text-red-500' }} px-6 py-4 whitespace-nowrap capitalize">AO {{ $transacao->valor }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap capitalize">
+                                <livewire:transacao.delete-transacao />
+                            </td>
                         </tr>
                     @endforeach
                 @endif
