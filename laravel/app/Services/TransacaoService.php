@@ -22,6 +22,17 @@ class TransacaoService{
                         ->orderBy('created_at', 'desc')->paginate(15);
     }
 
+    /**
+     * Exclui completamente a transação da base de dados
+     * @param int $id = id da transação a ser eliminada
+     */
+    public function delete(int $id){
+        if(!empty($id)){
+            return Transacao::where('id', $id)->where('usuario_id', $this->idUser)->delete();
+        }
+        return false;
+    }
+
     public function inserir(float $valor, string $tipo = 'receita', string $categoria, string $descricao, $data){
         //validar os campos
         if(empty($valor) || empty($categoria) || empty($categoria) || empty($data)):
