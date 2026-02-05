@@ -17,7 +17,7 @@ class TransacaoController extends Controller
 
     //my
     public function show(){
-        return $this->transacaoService->getAll();
+        return  $this->transacaoService->getAll();
     }
 
     public function create(){
