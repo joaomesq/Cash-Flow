@@ -16,6 +16,9 @@ class RegisterTransacao extends Component
     public $categoria;
     public $data;
 
+    //Resetar as variaveis na model
+    public $formKey = 0;
+
     public $categorias = [
         'venda'=> "Venda", "compra"=> "Compra", "pagamento"=> "Pagamento",
         'despesa-fixa'=> "Despesa fixa", 'despesa-variavel'=> "Despesa variável",
@@ -51,7 +54,9 @@ class RegisterTransacao extends Component
             $this->dispatch('transacao-criada', ano: $ano, mes: $mes);
         endif;        
 
-        $this->reset(['descricao', 'categoria', 'valor', 'data']);
+        //$this->reset(['descricao', 'categoria', 'valor', 'data']);
+        $this->reset();
+        $this->formKey++;
     }
 
     private function getServiceTransacao(){
