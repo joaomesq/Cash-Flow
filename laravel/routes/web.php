@@ -5,14 +5,18 @@ use App\Http\Controllers\TransacaoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route('dashboard'); 
+    return redirect()->route('home'); 
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
+     Route::get('/home', function(){
+        return view('home');
+     })->name('home');
+
     //transaction
     Route::get('/transacoes', [TransacaoController::class, 'show'])->name('transacoes');
     Route::get('/transacao/create', [TransacaoController::class, 'create'])->name('transacao.create');
