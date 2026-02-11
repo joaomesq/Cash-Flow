@@ -133,4 +133,47 @@ class TransacaoService{
                 break;
         }
     }
+
+    /**
+     * Calcula o saldo disponivel para determinado periodo[mensal, anual, diario, todo]
+     * @param int|null $ano - ano para o calculo do saldo
+     * @param int|null $mes - mes para o calculo do saldo
+     * @param int|null $dia - dia para o calculo do saldo
+     * @param string $periodo - periodo de tempo para o qual queremos os valores, default mensal
+     */
+    public function saldo(int|null $ano = null, int|null $mes = null, int|null $dia = null, string $periodo = "mensal"){
+        //Quando perido igual a todo
+        if($periodo == 'todo'):
+            return Transacao::query()->where('usuario_id', $this->idUser)->sum('valor');
+        endif;
+
+        //Quando perido igual a anual
+        if($periodo == 'anual'):
+            if($ano == null):
+                $ano = now('Y');
+            endif;
+            return Transacao::query()->where('usuario_id', $this->idUser)->whereYear('data', $ano)->sum('valor');
+        endif;
+
+        //Quando perido igual a mensal
+        if($periodo == 'mensal'):
+            if($mes == null || $ano == null):
+                $mes = now('m');
+                $ano = now('Y');
+            endif;
+            return  Transacao::query()->where('usuario_id', $this->idUser)->whereYear('data', $ano)->whereMonth('data', $mes)->sum('valor');
+        endif;
+
+        //Quando perido igual a diario
+        if($periodo == 'diario'):
+            if($dia == null || $mes == null || $ano == null):
+                $dia = now('d');
+                $mes = now('m');
+                $ano = now('Y');
+            endif;
+            return Transacao::query()->where('usuario_id', $this->idUser)->whereYear('data', $ano)->whereMonth('data', $mes)->whereDay('data', $dia)->sum('valor');
+        endif;
+        
+        return False;
+    }
 }

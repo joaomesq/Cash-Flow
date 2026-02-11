@@ -2,8 +2,9 @@
 
 namespace App\Livewire\Valores;
 
+use App\Services\TransacaoService;
 use Livewire\Component;
-
+use Illuminate\Support\Facades\Auth;
 /**
  * Componet que calcula o saldo disponivel
  * 
@@ -16,17 +17,26 @@ use Livewire\Component;
 class Saldo extends Component
 {
     public $periodo;
+    public $dia;
     public $mes;
     public $ano;
+    public $saldo;
 
     public function mount(){
         $this->periodo = 'todo';
-        $this->mes = now('m');
-        $this->ano = now('Y');
+        $this->dia = now()->format('d');
+        $this->mes = now()->format('m');
+        $this->ano = now()->format('Y');
+        $this->saldo = 0;
     }
 
     public function render()
     {
+        $this->calcularSaldo(new TransacaoService(userId: Auth::user()->id));
         return view('livewire.valores.saldo');
+    }
+
+    public function calcularSaldo(TransacaoService $transacaoService){
+        $this->saldo = $transacaoService->saldo(ano: $this->ano, mes: $this->mes, dia: $this->dia, periodo: $this->periodo);   
     }
 }
