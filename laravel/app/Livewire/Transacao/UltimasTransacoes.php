@@ -8,13 +8,15 @@ use Livewire\Component;
 
 class UltimasTransacoes extends Component
 {
-    public $receitas;
-    public $despesas;
+    public $transacoes;
 
     public function render()
     {
-        $this->receitas = (new TransacaoService(userId: Auth::user()->id))->ultimasTransacoes(tipo: 'receita');
-        $this->despesas = (new TransacaoService(userId: Auth::user()->id))->ultimasTransacoes(tipo: 'despesa');
+        $this->pegarTransacoes(new TransacaoService(userId: Auth::user()->id));
         return view('livewire.transacao.ultimas-transacoes');
+    }
+
+    public function pegarTransacoes(TransacaoService $transacaoService){
+        $this->transacoes = $transacaoService->ultimasTransacoes(8);
     }
 }
