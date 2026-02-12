@@ -12,8 +12,11 @@
             <p class="mt-2 text-sm font-light ">Este mês</p>          
         </div>
 
-        <div>
+        <div class="rounded-lg px-4 py-4 receita bg-red-600 dark:bg-transparent dark:border-red-600 dark:border ">
             <livewire:valores.despesa periodo="mensal" />
+            <span class="px-4 border-t border-white/50 w-full block mt-4"></span>
+            <p class="mt-2 text-sm font-light ">Este mês</p>          
         </div>
+
     </section>
 </x-app-layout>
