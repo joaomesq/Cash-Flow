@@ -19,7 +19,7 @@
         </div>
     </section>
 
-    <section class="transacoes-recentes">
+    <section class="transacoes-recentes px-4 mt-4">
         <livewire:transacao.ultimas-transacoes />
     </section>
 </x-app-layout>
