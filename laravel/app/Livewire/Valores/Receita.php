@@ -29,6 +29,6 @@ class Receita extends Component
     }
 
     public function calcularReceita(TransacaoService $transacaoService){
-        $this->receita = $transacaoService->saldo(periodo: $this->periodo, ano: $this->ano, mes: $this->mes, dia: $this->dia);
+        $this->receita = $transacaoService->receita(periodo: $this->periodo, ano: $this->ano, mes: $this->mes, dia: $this->dia);
     }
 }
