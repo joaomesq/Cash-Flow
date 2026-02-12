@@ -19,6 +19,10 @@
         </div>
     </section>
 
+    <section class="grafico px-4 mt-4">
+        <livewire:graficos.fluxo-caixa />
+    </section>
+
     <section class="transacoes-recentes px-4 mt-4">
         <livewire:transacao.ultimas-transacoes />
     </section>
