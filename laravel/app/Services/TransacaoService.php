@@ -176,4 +176,12 @@ class TransacaoService{
         
         return False;
     }
+
+    public function despesa(int|null $ano, int|null $mes, int|null $dia, string $periodo = "mensal"){
+        $transacoes = $this->resumoTransacoes(tipo: 'despesa', coluna: 'categoria', ano: $ano, mes: $mes, dia: $dia, periodo: $periodo);
+        if(!$transacoes):
+            return 0;
+        endif;
+        return $transacoes->sum('total');
+    }
 }

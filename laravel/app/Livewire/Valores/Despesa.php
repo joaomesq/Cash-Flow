@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Valores;
 
+use App\Services\TransacaoService;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 /**
@@ -19,18 +21,23 @@ class Despesa extends Component
     public $dia;
     public $mes;
     public $ano;
-    public $receita;
+    public $despesa;
 
     public function mount(){
         $this->periodo = "mensal";
         $this->dia = date('d');
         $this->mes = date('m');
-        $this->ano = daet('Y');
-        $this->receita = 0;
+        $this->ano = date('Y');
+        $this->despesa = 0;
     }
 
     public function render()
     {
+        $this->calcularReceita(new TransacaoService(userId: Auth::user()->id));
         return view('livewire.valores.despesa');
+    }
+
+    public function calcularReceita(TransacaoService $transacaoService){
+        $this->despesa = $transacaoService->despesa(ano: $this->ano, mes: $this->mes, dia: $this->dia, periodo: $this->periodo);
     }
 }
