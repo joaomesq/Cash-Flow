@@ -145,7 +145,7 @@ class TransacaoService{
         return ($this->receita($ano, $mes, $dia, $periodo) - $this->despesa($ano, $mes, $dia, $periodo));
     }
 
-    public function receita(int|null $ano, int|null $mes, int|null $dia, string $periodo = "mensal"){
+    public function receita(int $ano, int $mes, int $dia, string $periodo = "mensal"){
         $transacoes = $this->resumoTransacoes(tipo: 'receita', coluna: 'categoria', ano: $ano, mes: $mes, dia: $dia, periodo: $periodo);
         if(!$transacoes):
             return 0;
@@ -153,7 +153,7 @@ class TransacaoService{
         return $transacoes->sum('total');
     }
 
-    public function despesa(int|null $ano, int|null $mes, int|null $dia, string $periodo = "mensal"){
+    public function despesa(int $ano, int $mes, int $dia, string $periodo = "mensal"){
         $transacoes = $this->resumoTransacoes(tipo: 'despesa', coluna: 'categoria', ano: $ano, mes: $mes, dia: $dia, periodo: $periodo);
         if(!$transacoes):
             return 0;
