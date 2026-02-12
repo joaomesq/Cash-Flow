@@ -25,9 +25,9 @@ class Saldo extends Component
 
     public function mount(){
         $this->periodo = 'todo';
-        $this->dia = now()->format('d');
-        $this->mes = now()->format('m');
-        $this->ano = now()->format('Y');
+        $this->dia = date('d');
+        $this->mes = date('m');
+        $this->ano = date('Y');
         $this->saldo = 0;
     }
 
