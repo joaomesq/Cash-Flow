@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Auth;
 /**
  * Componet que calcula o saldo disponivel
  * 
- * Este componente calcula o saldo disponivel para determinado periodo[mensal, anual, todo]
- * @param string $perido = [mensal, anual, todo] default = todo 
- * @param int $mes = define o mês para o saldo - default = now
- * @param int $ano = define o ano para o saldo - default = now
+ * Este componente calcula o saldo disponivel para determinado periodo[mensal, anual, diario todo]
+ * @param string $perido = [mensal, anual, diario, todo] default = todo
+ * @param int $dia = define o dia para o saldo - default = date('d') 
+ * @param int $mes = define o mês para o saldo - default = date('m')
+ * @param int $ano = define o ano para o saldo - default = date('Y')
  **/
 
 class Saldo extends Component
