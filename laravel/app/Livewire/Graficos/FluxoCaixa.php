@@ -40,19 +40,25 @@ class FluxoCaixa extends Component
 
         $receitas = [];
         $despesas = [];
-        
+
         // Preencher labels e separar dados
         foreach ($dadosBrutos as $dado) {
             $dataLabel = \Carbon\Carbon::parse($dado->data_agrupada)->format($formatoLabel); // Formata para exibição
             
-            if (!in_array($dataLabel, $labels)) {
-                $labels[] = $dataLabel;
+            if (!in_array($dataLabel, $this->labels)) {
+                $this->labels[] = $dataLabel;
             }
             if ($dado->tipo === 'receita') {
                 $receitas[$dataLabel] = $dado->total;
             } else {
                 $despesas[$dataLabel] = $dado->total;
             }
+        }
+
+         // Garantir que todos os labels tenham valor (0 se não houver transação)  
+        foreach ($this->labels as $label) {
+            $this->dadosReceita[] = $receitas[$label] ?? 0;
+            $this->dadosDespesa[] = $despesas[$label] ?? 0;
         }
     }
 }
