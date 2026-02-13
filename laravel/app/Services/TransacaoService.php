@@ -156,4 +156,40 @@ class TransacaoService{
         endif;
         return $transacoes->sum('total');
     }
+
+    /**
+     * Pega os dados para o grafico de fluxo de caixa
+     * @param string $periodo[mensal, semanal, diario, todo] - periodo de tempo para o qual queremos os valores, default mensal
+     */
+    public function dadosGrafico(string $periodo = "mensal"){
+        $query = Transacao::query()->where('usuario_id', $this->idUser);
+
+        //Definição do intervalo de datas
+        switch ($periodo) {
+            case 'semanal':
+                // Últimos 7 dias
+                $inicio = now()->subDays(6)->startOfDay();
+                $fim = now()->endOfDay();
+                $formatoData = '%Y-%m-%d'; // Agrupamento diário
+                $formatoLabel = 'd/m';     // Ex: 10/02
+                break;
+            
+            case 'mensal':
+                // Mês atual (ou últimos 30 dias se preferir)
+                $inicio = now()->startOfMonth();
+                $fim = now()->endOfMonth();
+                $formatoData = '%Y-%m-%d';
+                $formatoLabel = 'd/m';
+                break;
+            
+            case 'todo':
+            default:
+                // Todo o período (último ano para não sobrecarregar)
+                $inicio = now()->subYear()->startOfYear();
+                $fim = now();
+                $formatoData = '%Y-%m';    // Agrupamento mensal
+                $formatoLabel = 'M/Y';     // Ex: Jan/2026
+                break;
+        }
+    }
 }

@@ -6,6 +6,8 @@ use Livewire\Component;
 
 class FluxoCaixa extends Component
 {
+    public $periodo = "mensal";
+
     public function render()
     {
         return view('livewire.graficos.fluxo-caixa');
