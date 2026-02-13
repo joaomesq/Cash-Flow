@@ -159,7 +159,7 @@ class TransacaoService{
 
     /**
      * Pega os dados para o grafico de fluxo de caixa
-     * @param string $periodo[mensal, semanal, diario, todo] - periodo de tempo para o qual queremos os valores, default mensal
+     * @param string $periodo[mensal, semanal, todo] - periodo de tempo para o qual queremos os valores, default mensal
      */
     public function dadosGrafico(string $periodo = "mensal"){
         $query = Transacao::query()->where('usuario_id', $this->idUser);
