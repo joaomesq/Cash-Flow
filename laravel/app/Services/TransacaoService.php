@@ -164,7 +164,7 @@ class TransacaoService{
     public function dadosGrafico(string $periodo = "mensal"){
         $query = Transacao::query()->where('usuario_id', $this->idUser);
 
-        //Definição do intervalo de datas
+        #Definição do intervalo de datas
         switch ($periodo) {
             case 'semanal':
                 // Últimos 7 dias
@@ -191,5 +191,20 @@ class TransacaoService{
                 $formatoLabel = 'M/Y';     // Ex: Jan/2026
                 break;
         }
+
+        //Filtrando por data
+        $query->whereBetween('data', [$inicio, $fim]);
+
+        #Agrupamento e Soma (Query Otimizada)
+        // SQLite usa strftime, MySQL usa DATE_FORMAT. 
+        
+        return $dadosBrutos = $query->select(
+                DB::raw("DATE_FORMAT(data, '$formatoData') as data_agrupada"),
+                'tipo',
+                DB::raw('SUM(valor) as total')
+            )
+            ->groupBy('data_agrupada', 'tipo')
+            ->orderBy('data_agrupada')
+            ->get();
     }
 }
