@@ -196,10 +196,18 @@ class TransacaoService{
         $query->whereBetween('data', [$inicio, $fim]);
 
         #Agrupamento e Soma (Query Otimizada)
-        // SQLite usa strftime, MySQL usa DATE_FORMAT. 
+        $driver = DB::connection()->getDriverName();
+        
+        if ($driver === 'sqlite') {
+            // SQLite usa strftime
+            $selectData = DB::raw("strftime('$formatoData', data) as data_agrupada");
+        } else {
+            // MySQL/MariaDB usa DATE_FORMAT
+            $selectData = DB::raw("DATE_FORMAT(data, '$formatoData') as data_agrupada");
+        }
         
         return $dadosBrutos = $query->select(
-                DB::raw("DATE_FORMAT(data, '$formatoData') as data_agrupada"),
+                $selectData,
                 'tipo',
                 DB::raw('SUM(valor) as total')
             )
