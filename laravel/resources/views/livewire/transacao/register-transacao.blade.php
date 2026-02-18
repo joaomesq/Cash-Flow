@@ -1,4 +1,4 @@
-<section class="insert-transacao p-4 bg-white dark:bg-transparent rounded-lg shadow md:py-8">
+<section class="insert-transacao p-4 bg-white dark:border dark:text-gray-300 dark:border-gray-600 dark:bg-transparent rounded-lg shadow md:py-8">
     <div>
         <form wire:key="form-{{ $formKey }}" wire:submit.prevent="salvar">
             <fieldset class="grid grid-cols-2 lg:grid-cols-5 lg:justify-items-center lg:items-center gap-4">
@@ -34,18 +34,18 @@
                 <div>
                     <label>Valor</label>
                     <input type="text" class="w-full rounded bg-transparent dark:bg-transparent" name="input-valor" wire:model="valor" step="0.01" placeholder="Valor">
-                    @error('valor')
+                    @error('valor')+
                         <span class="text-red-500 text-xs">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <div class="flex items-center gap-12 lg:mt-4">
                     <p>
-                        <input class="p-2" type="radio" name="input-tipo" wire:model="tipo" value="receita"><label>Entrada</label>
+                        <input class="p-2 bg-transparent" type="radio" name="input-tipo" wire:model="tipo" value="receita"><label>Entrada</label>
                     </p>
 
                     <p>
-                        <input class="p-2" type="radio" name="input-tipo" wire:model="tipo" value="despesa"><label>Saída</label>
+                        <input class="p-2 bg-transparent" type="radio" name="input-tipo" wire:model="tipo" value="despesa"><label>Saída</label>
                     </p>
                     @error('tipo')
                         <span class="text-red-500 text-xs">{{ $message }}</span>
