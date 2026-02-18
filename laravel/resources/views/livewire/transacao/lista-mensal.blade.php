@@ -1,6 +1,6 @@
-<section class="p-4 overflow-x-auto bg-white rounded-lg">
+<section class="p-4 overflow-x-auto bg-white dark:bg-transparent dark:border dark:border-gray-600 rounded-lg">
     <table class="min-w-full text-gray-900 dark:text-gray-200 divide-y divide-gray-200">
-        <thead class="bg-gray-100 uppercase text-gray-600 dark:bg-gray-800 sticky top-0 z-10">
+        <thead class="bg-gray-100 uppercase text-gray-600 dark:text-gray-300 dark:bg-gray-600 sticky top-0 z-10">
             <tr>
                 <th class="px-6  py-3 text-left text-xs  tracking-wider">Descrição</th>
                 <th class="px-6  py-3 text-left text-xs  tracking-wider">Categoria</th>
@@ -16,7 +16,7 @@
                 </tr>
             @else
                 @foreach($transacoes as $transacao)
-                    <tr class="hover:bg-gray-200 hover:text-black">
+                    <tr class="hover:bg-gray-700 hover:font-semibold">
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->descricao }}</td>
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->categoria }}</td>
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->data }}</td>
