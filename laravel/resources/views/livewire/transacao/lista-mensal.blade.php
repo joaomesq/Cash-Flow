@@ -1,6 +1,6 @@
-<section class="p-2 overflow-x-auto">
+<section class="p-4 overflow-x-auto bg-white rounded-lg">
     <table class="min-w-full text-gray-900 dark:text-gray-200 divide-y divide-gray-200">
-        <thead class="bg-gray-50 uppercase text-gray-400 dark:bg-gray-800 sticky top-0 z-10">
+        <thead class="bg-gray-100 uppercase text-gray-600 dark:bg-gray-800 sticky top-0 z-10">
             <tr>
                 <th class="px-6  py-3 text-left text-xs  tracking-wider">Descrição</th>
                 <th class="px-6  py-3 text-left text-xs  tracking-wider">Categoria</th>
