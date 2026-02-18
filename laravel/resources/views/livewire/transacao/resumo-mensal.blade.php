@@ -1,4 +1,4 @@
-<section class="dark:border dark:border-gray-600 bg-white dark:bg-transparent rounded-lg shadow p-4 w-full dark:text-gray-300">
+<section class="dark:border md:py-6 dark:border-gray-600 bg-white dark:bg-transparent rounded-lg shadow p-4 w-full dark:text-gray-300">
     <div class="mb-2 lg:grid lg:grid-cols-[1fr_3fr] items-center gap-2">
         <div class="data text-end p-2 mb-4 lg:mb-0">
             <button wire:click="backMonth" class="lg border dark:border-gray-600 rounded w-[50px] h-[30px]"><</button>

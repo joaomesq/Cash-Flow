@@ -1,4 +1,4 @@
-<section class="insert-transacao p-4">
+<section class="insert-transacao p-4 bg-white dark:bg-transparent rounded-lg shadow md:py-8">
     <div>
         <form wire:key="form-{{ $formKey }}" wire:submit.prevent="salvar">
             <fieldset class="grid grid-cols-2 lg:grid-cols-5 lg:justify-items-center lg:items-center gap-4">
