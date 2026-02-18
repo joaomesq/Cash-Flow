@@ -1,5 +1,5 @@
 <section>
-    <div class="mb-2 lg:grid lg:grid-cols-[1fr_3fr] items-center gap-2 text-gray-300">
+    <div class="mb-2 lg:grid lg:grid-cols-[1fr_3fr] items-center gap-2">
         <div class="data text-end p-2 mb-4 lg:mb-0">
             <button wire:click="backMonth" class="lg border px-2 rounded w-[50px]"><</button>
             <label class="text-lg font-semibold mx-2">{{ $data }}</label>

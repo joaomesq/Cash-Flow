@@ -1,7 +1,7 @@
 <section class="insert-transacao p-4">
     <div>
         <form wire:key="form-{{ $formKey }}" wire:submit.prevent="salvar">
-            <fieldset class="grid grid-cols-2 lg:grid-cols-5 lg:justify-items-center lg:items-center gap-4 dark:text-gray-300">
+            <fieldset class="grid grid-cols-2 lg:grid-cols-5 lg:justify-items-center lg:items-center gap-4">
                 <div>
                     <label>Descricao</label>
                     <input class="w-full rounded bg-transparent dark:bg-transparent" type="text" name="input-descricao" wire:model="descricao" placeholder="Descricação da transação" required>
