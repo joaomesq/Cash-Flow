@@ -46,11 +46,11 @@
         <table class="min-w-full text-gray-900 dark:text-gray-200 divide-y divide-gray-200">
            <thead class="bg-gray-100 uppercase text-gray-600 dark:text-gray-300 dark:bg-gray-600 sticky top-0 z-10">
                 <tr>
-                    <th class="px-6  py-3 text-left text-xs  tracking-wider">Descrição</th>
-                    <th class="px-6  py-3 text-left text-xs  tracking-wider">Categoria</th>
-                    <th class="px-6  py-3 text-left text-xs  tracking-wider">Data</th>
-                    <th class="px-6  py-3 text-left text-xs  tracking-wider">Valor</th>
-                    <th class="px-5 py-3 text-lef text-xs tracking-wider"></th>
+                    <th class="px-6  py-4 text-left text-xs  tracking-wider">Descrição</th>
+                    <th class="px-6  py-4 text-left text-xs  tracking-wider">Categoria</th>
+                    <th class="px-6  py-4 text-left text-xs  tracking-wider">Data</th>
+                    <th class="px-6  py-4 text-left text-xs  tracking-wider">Valor</th>
+                    <th class="px-5  py-4 text-lef text-xs tracking-wider"></th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:bg-gray-900 bg-white">
