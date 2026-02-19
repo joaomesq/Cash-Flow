@@ -10,11 +10,13 @@
             <article class="receita p-4 bg-green-600 dark:bg-transparent dark:border-green-600 dark:border rounded-lg">
                 <livewire:valores.receita periodo="todo"/>
                 <span class="px-4 border-t border-white/50 w-full block mt-4"></span>
+                <p class="mt-2 text-sm font-light ">Tudo</p>
             </article>
 
             <article class="despesa rounded-lg p-4 receita bg-red-600 dark:bg-transparent dark:border-red-600 dark:border">
                 <livewire:valores.despesa periodo="todo"/>
                 <span class="px-4 border-t border-white/50 w-full block mt-4"></span>
+                <p class="mt-2 text-sm font-light ">Tudo</p>
             </article>
         </div>
 
