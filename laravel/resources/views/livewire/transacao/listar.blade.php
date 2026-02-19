@@ -1,5 +1,5 @@
 <section>
-    <div class="filtros border border-gray-600 rounded p-4 mb-2">
+    <div class="filtros dark:border dark:border-gray-600 bg-white shadow rounded-lg p-4 mb-4">
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 items-center dark:text-gray-300 justify-items-center">
             <p class="w-full">
                 <label>Descrição</label>
@@ -42,9 +42,9 @@
         </p>
     </div>
 
-    <div class="border border-gray-600 rounded p-4 overflow-x-auto">
+    <div class="dark:border dark:border-gray-600 rounded-lg bg-white shadow p-4 overflow-x-auto">
         <table class="min-w-full text-gray-900 dark:text-gray-200 divide-y divide-gray-200">
-           <thead class="bg-gray-50 uppercase text-gray-400 dark:bg-gray-800 sticky top-0 z-10">
+           <thead class="bg-gray-100 uppercase text-gray-600 dark:text-gray-300 dark:bg-gray-600 sticky top-0 z-10">
                 <tr>
                     <th class="px-6  py-3 text-left text-xs  tracking-wider">Descrição</th>
                     <th class="px-6  py-3 text-left text-xs  tracking-wider">Categoria</th>
@@ -60,7 +60,7 @@
                     </tr>
                 @else
                     @foreach($transacoes as $transacao)
-                        <tr class="hover:bg-gray-200 hover:text-black">
+                        <tr class="hover:bg-gray-300">
                             <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->descricao }}</td>
                             <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->categoria }}</td>
                             <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->data }}</td>

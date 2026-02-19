@@ -16,7 +16,7 @@
                 </tr>
             @else
                 @foreach($transacoes as $transacao)
-                    <tr class="hover:bg-gray-700 hover:font-semibold">
+                    <tr class="hover:bg-gray-300">
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->descricao }}</td>
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->categoria }}</td>
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->data }}</td>
