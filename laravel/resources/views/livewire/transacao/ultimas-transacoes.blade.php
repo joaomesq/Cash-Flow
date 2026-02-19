@@ -8,7 +8,7 @@
                 </tr>
             @else
                 @foreach($transacoes as $transacao)
-                    <tr class="hover:bg-gray-300">
+                    <tr class="hover:bg-gray-300 dark:hover:bg-gray-800">
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->data }}</td>
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->descricao }}</td>
                         <td class="{{ ($transacao->tipo == 'receita')? 'text-green-600': 'text-red-600' }} px-6 py-4 whitespace-nowrap capitalize"><span>{{($transacao->tipo != 'receita')? '-': '+'}}</span> AO {{$transacao->valor }}</td>
