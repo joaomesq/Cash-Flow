@@ -9,12 +9,12 @@
         <div class="grid grid-cols-3 items-center px-4 lg:justify-items-center">
             <div class="receita">
                 <p class="">Receita</p>
-                <span class="text-green-600">AO {{ number_format($receita, 2, ',', '.') }}</span>
+                <span class="text-green-600">AO + {{ number_format($receita, 2, ',', '.') }}</span>
             </div>
 
             <div class="despesa">
                 <p class="">Despesa</p>
-                <span class="text-red-500">AO {{ number_format($despesa, 2, ',', '.') }}</span>
+                <span class="text-red-500">AO - {{ number_format($despesa, 2, ',', '.') }}</span>
             </div>
 
             <div class="saldo">

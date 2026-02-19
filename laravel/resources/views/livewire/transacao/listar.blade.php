@@ -1,5 +1,5 @@
 <section>
-    <div class="filtros dark:border dark:border-gray-600 bg-white shadow rounded-lg p-4 md:py-6 mb-4">
+    <div class="filtros dark:border dark:bg-transparent dark:border-gray-600 bg-white shadow rounded-lg p-4 md:py-6 mb-4">
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 items-center dark:text-gray-300 justify-items-center">
             <p class="w-full">
                 <label>Descrição</label>
