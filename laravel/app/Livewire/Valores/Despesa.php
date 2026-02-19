@@ -17,14 +17,13 @@ use Livewire\Component;
  **/
 class Despesa extends Component
 {
-    public $periodo;
+    public $periodo = "mensal";
     public $dia;
     public $mes;
     public $ano;
     public $despesa;
 
     public function mount(){
-        $this->periodo = "mensal";
         $this->dia = date('d');
         $this->mes = date('m');
         $this->ano = date('Y');

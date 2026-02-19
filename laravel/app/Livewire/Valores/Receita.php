@@ -8,14 +8,13 @@ use Livewire\Component;
 
 class Receita extends Component
 {
-    public $periodo;
+    public $periodo = "todo";
     public $dia;
     public $mes;
     public $ano;
     public $receita;
 
     public function mount(){
-        $this->periodo = 'mensal';
         $this->ano = date('Y');
         $this->mes = date('m');
         $this->dia = date('d');

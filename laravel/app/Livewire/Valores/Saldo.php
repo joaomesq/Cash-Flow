@@ -17,14 +17,13 @@ use Illuminate\Support\Facades\Auth;
 
 class Saldo extends Component
 {
-    public $periodo;
+    public $periodo = "todo";
     public $dia;
     public $mes;
     public $ano;
     public $saldo;
 
     public function mount(){
-        $this->periodo = 'todo';
         $this->dia = date('d');
         $this->mes = date('m');
         $this->ano = date('Y');
