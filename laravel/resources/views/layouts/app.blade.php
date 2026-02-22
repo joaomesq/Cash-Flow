@@ -29,9 +29,30 @@
             @endisset
 
             <!-- Page Content -->
-            <main class="mt-6">
+            <main class="mt-6 pb-[80px]">
                 {{ $slot }}
             </main>
+
+            <footer class="bg-gray-100 dark:bg-gray-900 pt-1">
+                    <section class="tab-bar dark:text-gray-300 text-gray-500 mt-8 fixed bottom-0 left-0 right-0 bg-white mt-6 p-4 shadow dark:bg-gray-800">
+                        <nav>
+                            <ul class="grid text-center font-bold grid-cols-4 gap-4 w-full container mx-auto uppercase">
+                                <li>
+                                    <a href="{{route('home')}}">Home</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('transacao.create')}}">Adicionar</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('transacao.historico')}}">Transações</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('profile.edit')}}">{{__('Perfil')}}</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </section>
+            </footer>
         </div>
     </body>
 
