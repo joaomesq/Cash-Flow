@@ -1,6 +1,6 @@
 <x-app-layout>
     <section class="main p-4">
-        <div class="dark:text-gray-300 text-white mb-4 valores container mx-auto grid grid-cols-3 gap-4">
+        <div class="dark:text-gray-300 text-white mb-4 valores mx-auto grid grid-cols-3 gap-4">
             <article class="saldo bg-blue-600 dark:bg-transparent dark:border-blue-600 dark:border dark:text-gray-300 p-4 text-white rounded-lg">
                 <livewire:valores.saldo periodo="todo" />
                 <span class="border-t border-white/50 w-full block mt-4"></span>
