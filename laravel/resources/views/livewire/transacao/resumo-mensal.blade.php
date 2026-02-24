@@ -6,19 +6,19 @@
             <button class="lg border rounded w-[50px] dark:border-gray-600 h-[30px]" wire:click="nextMonth()">></button>
         </div>
         
-        <div class="grid grid-cols-3 items-center px-4 md:justify-items-center">
+        <div class="grid grid-cols-3 gap-2 px-4 md:justify-items-center">
             <div class="receita">
-                <p class="border-b border-green-100 lg:border-0 dark:border-gray-500 mb-2">Receita</p>
+                <p class="lg:border-0 mb-2">Receita</p>
                 <span class="text-green-600">+ AO {{ number_format($receita, 2, ',', '.') }}</span>
             </div>
 
             <div class="despesa">
-                <p class="border-b border-red-100 dark:border-gray-500 lg:border-0 mb-2">Despesa</p>
+                <p class="mb-2">Despesa</p>
                 <span class="text-red-500">- AO {{ number_format($despesa, 2, ',', '.') }}</span>
             </div>
 
             <div class="saldo">
-                <p class="border-b border-blue-100 lg:border-0 mb-2 dark:border-gray-500">Saldo</p>
+                <p class="mb-2 dark:border-gray-500">Saldo</p>
                 <span class="{{ ($saldo >= 0)? 'text-green-500': 'text-red-500' }}">AO {{ number_format($saldo, 2, ',', '.') }}</span>
             </div>
         </div>
