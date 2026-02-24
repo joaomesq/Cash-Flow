@@ -19,7 +19,9 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        @include('layouts.navigation')
+        <div class="hidden lg:block">
+            @include('layouts.navigation')
+        </div>
 
         <!-- Page Heading -->
         @isset($header)
@@ -31,7 +33,7 @@
         @endisset
 
         <!-- Page Content -->
-        <main class="mt-6 pb-[80px]">
+        <main class="py-4">
             {{ $slot }}
         </main>
 
