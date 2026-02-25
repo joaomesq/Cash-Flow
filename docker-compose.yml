@@ -42,9 +42,7 @@ services:
       - laravel
     
   node:
-    build:
-      context: .
-      dockerfile: docker/node/Dockerfile
+    image: node:20-alpine
     container_name: laravel_node
     working_dir: /var/www/
     volumes:
