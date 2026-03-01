@@ -1,7 +1,3 @@
 node_modules
-vendor
-.git
-.dockerignore
-public/build
-storage/*.key
+node_modules
 .env
