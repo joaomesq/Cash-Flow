@@ -15,5 +15,6 @@ WORKDIR /var/www
 # Copiar entrypoint com permissões
 COPY --chmod=755 docker/php/entrypoint.sh /usr/local/bin/entrypoint.sh
 
+EXPOSE 80
 ENTRYPOINT ["entrypoint.sh"]
-CMD ["php-fpm"]
+CMD ["sh", "-c", "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=80"]
