@@ -34,7 +34,14 @@
 
         <!-- Lateral Bar -->
         <aside>
-            <section class=" m-8 barra-lateral fixed left-0 bg-white h-[80%] w-[180px] shadow rounded-lg"></section>
+            <section class=" m-8 barra-lateral fixed left-0 bg-white h-[80%] w-[180px] shadow rounded-lg">
+                <!-- Logo -->
+                <div class="shrink-0 border-b border-b-2 py-2">
+                    <a href="{{ route('dashboard') }}">
+                        <x-application-logo class="block h-20 w-20 fill-current text-gray-800 dark:text-gray-200" />
+                    </a>
+                </div>
+            </section>
         </aside>
 
         <!-- Page Content -->
