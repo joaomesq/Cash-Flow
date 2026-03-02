@@ -41,6 +41,56 @@
                         <x-application-logo class="block h-20 w-20 fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
+
+                <div class="nav">
+                    <nav>
+                        <ul class="p-4 grid h-full max-w-lg mx-auto">
+                            <li class="my-2">
+                                <a href="{{ route('home')}}" class="flex items-center gap-2 group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-home w-8 h-6 text-slate-400 group-hover:text-blue-600 transition-colors"
+                                    >
+                                        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                        <polyline points="9 22 9 12 15 12 15 22" />
+                                    </svg>
+
+                                    <span class="text-lg font-bold text-slate-400 group-hover:text-blue-600">Início</span>
+                                </a>
+                            </li>
+                            <li class="my-4">
+                                <a href="{{ route('transacao.create')}}" class="flex items-center gap-2 group">
+                                    <button class="flex items-center justify-center gap-2 group">
+                                        <div class="bg-transaparent border-2 dark:bg-blue-500  p-1 rounded-full  dark:shadow-blue-900/30  transition-transform group-hover:text-blue-600 group-hover:border-blue-600 transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor"  stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-6 h-6"
+                                            >
+                                              <path d="M5 12h14" />
+                                              <path d="M12 5v14" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-lg font-bold text-slate-400 group-hover:text-blue-600">Novo</span>
+                                    </button>
+                                </a>
+                            </li>
+                            <li class="my-4">
+                                <a href="{{ route('transacao.historico')}}" class="flex items-center gap-2 group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-history w-8 h-6 text-slate-400 group-hover:text-blue-600 transition-colors"
+                                    >
+                                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                        <path d="M3 3v5h5" />
+                                        <path d="M12 7v5l4 2" />
+                                    </svg>
+                                    <span class="text-lg font-bold text-slate-400 group-hover:text-blue-600">Histórico</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </section>
         </aside>
 
