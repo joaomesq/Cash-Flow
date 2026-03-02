@@ -33,10 +33,12 @@
         @endisset
 
         <!-- Lateral Bar -->
-        <aside></aside>
-        
+        <aside>
+            <section class=" m-8 barra-lateral fixed left-0 bg-white h-[80%] w-[180px] shadow rounded-lg"></section>
+        </aside>
+
         <!-- Page Content -->
-        <main class="py-4 pb-16">
+        <main class="py-4 pb-16 lg:ml-[220px]">
             {{ $slot }}
         </main>
 
