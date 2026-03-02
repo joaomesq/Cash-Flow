@@ -33,7 +33,7 @@
         @endisset
 
         <!-- Lateral Bar -->
-        <aside>
+        <aside class="hidden lg:block">
             <section class="m-8 barra-lateral fixed left-0 bg-white dark:bg-gray-800 h-[80%] w-[180px] shadow rounded-lg">
                 <!-- Logo -->
                 <div class="shrink-0 border-b dark:border-gray-500 border-b-2 py-2">
