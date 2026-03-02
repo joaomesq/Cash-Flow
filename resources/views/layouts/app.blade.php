@@ -95,7 +95,7 @@
         </aside>
 
         <!-- Page Content -->
-        <main class="py-4 pb-16 lg:ml-[220px]">
+        <main class="py-4 pb-16 lg:ml-[250px]">
             {{ $slot }}
         </main>
 
