@@ -32,6 +32,9 @@
         </header>
         @endisset
 
+        <!-- Lateral Bar -->
+        <aside></aside>
+        
         <!-- Page Content -->
         <main class="py-4 pb-16">
             {{ $slot }}
