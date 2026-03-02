@@ -34,11 +34,11 @@
 
         <!-- Lateral Bar -->
         <aside>
-            <section class=" m-8 barra-lateral fixed left-0 bg-white h-[80%] w-[180px] shadow rounded-lg">
+            <section class="m-8 barra-lateral fixed left-0 bg-white dark:bg-gray-800 h-[80%] w-[180px] shadow rounded-lg">
                 <!-- Logo -->
-                <div class="shrink-0 border-b border-b-2 py-2">
+                <div class="shrink-0 border-b dark:border-gray-500 border-b-2 py-2">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-20 w-20 fill-current text-gray-800 dark:text-gray-200" />
+                        <x-application-logo class="block h-16 w-20 fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
@@ -62,7 +62,7 @@
                             <li class="my-4">
                                 <a href="{{ route('transacao.create')}}" class="flex items-center gap-2 group">
                                     <button class="flex items-center justify-center gap-2 group">
-                                        <div class="bg-transaparent border-2 dark:bg-blue-500  p-1 rounded-full  dark:shadow-blue-900/30  transition-transform group-hover:text-blue-600 group-hover:border-blue-600 transition-colors">
+                                        <div class="bg-transaparent text-gray-400 border-2 dark:border-gray-400 p-1 rounded-full  transition-transform group-hover:text-blue-600 group-hover:border-blue-600 transition-colors">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor"  stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-6 h-6"
                                             >
