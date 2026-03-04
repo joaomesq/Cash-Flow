@@ -14,10 +14,10 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+    <body class="font-sans antialiased">
+        <div class="bg-[url('/public/img/4.png')] bg-cover bg-center min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 ">
             
-            <main class="bg-white dark:bg-gray-800">
+            <main>
                 {{ $slot }}    
             </main>
    

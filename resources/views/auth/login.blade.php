@@ -2,29 +2,29 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <section class="mt-6">
-        <div class="w-[300px] md:w-[450px] h-[180px] md:h-[150px] text-white px-6">
-            <h2 class="font-semibold text-lg mb-2">Cash Flow - Chanax</h2>
+    <section class="mt-6 shadow-lg rounded-lg flex flex-col w-[400px] md:w-[500px]">
+        <div class="w-full bg-cyan-500 rounded-t-lg text-white px-6 py-6">
+            <h2 class="font-bold text-lg mb-2">Cash Flow - Chanax</h2>
             <p>"Bem-vindo! Aqui você tem o controle da movimentação do seu dinheiro.
                 Estamos aqui para ajudar a tronar sua vida financeira mais organizada e eficiente"
             </p>
         </div>
 
-        <div class="form bg-white px-8 py-4">
+        <div class="form bg-transparent rounded-b-lg px-6 py-4">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 
                 <!-- Email Address -->
                 <div>
-                    <label class="text-gray-600" for="email">Email</label>
-                    <x-text-input id="email" class="block mt-1 w-full dark:bg-white dark:text-gray-900" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                    <label class="text-gray-600 hidden" for="email">Email</label>
+                    <x-text-input id="email" class="block mt-1 w-full dark:bg-white dark:text-gray-900" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="E--mail"/>
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
                 
                 <!-- Password -->
                 <div class="mt-4">
-                    <label for="password" class="text-gray-600">Password</label>
-                    <x-text-input id="password" class="block mt-1 w-full dark:bg-white dark:text-gray-900" type="password" name="password" required autocomplete="current-password" />
+                    <label for="password" class="text-gray-600 hidden">Password</label>
+                    <x-text-input id="password" class="block mt-1 w-full dark:bg-white dark:text-gray-900" type="password" name="password" required autocomplete="current-password" placeholder="Password"/>
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
@@ -45,10 +45,10 @@
                 </div>
 
                 <div class="mt-4 bg-red center gap-2">
-                    <button class="w-full dark:bg-gray-300 dark:hover:bg-gray-200 text-black rounded p-2 mb-2">Log in</button>
+                    <button class="w-full bg-cyan-500 text-white hover:bg-gray-200 hover:text-black uppercase rounded p-2 mb-2">Log in</button>
 
                     <p class="text-center">
-                        <a class="text-sm text-black hover:text-gray-500 dark:hover:text-gray-500" href="{{ route('register') }}">
+                        <a class="text-sm text-black hover:text-gray-500 dark:hover:text-gray-500 uppercase" href="{{ route('register') }}">
                             {{ __('Criar Conta') }}
                         </a>
                     </p>
