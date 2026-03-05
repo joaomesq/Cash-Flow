@@ -2,15 +2,15 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <section class="mt-6 shadow-lg rounded-lg flex flex-col w-[400px] md:w-[500px]">
-        <div class="w-full bg-cyan-500 rounded-t-lg text-white px-6 py-6">
+    <section class="mt-6 shadow-lg rounded-lg flex flex-col w-[400px] justify-center md:w-[500px] lg:w-[90%] lg:px-12 lg:grid lg:grid-cols-2">
+        <div class="w-full bg-cyan-500 text-white px-6 py-6 lg:p-8 rounded-t-lg lg:rounded-none lg:rounded-s-lg">
             <h2 class="font-bold text-lg mb-2">Cash Flow - Chanax</h2>
             <p>"Bem-vindo! Aqui você tem o controle da movimentação do seu dinheiro.
                 Estamos aqui para ajudar a tronar sua vida financeira mais organizada e eficiente"
             </p>
         </div>
 
-        <div class="form bg-transparent rounded-b-lg px-6 py-4">
+        <div class="form bg-transparent px-6 py-4">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 
