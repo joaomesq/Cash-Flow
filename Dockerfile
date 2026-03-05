@@ -39,4 +39,4 @@ COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
-CMD service nginx start && php-fpm
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=10000
