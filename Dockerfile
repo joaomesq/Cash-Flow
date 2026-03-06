@@ -30,7 +30,7 @@ RUN chmod +x /start.sh
 COPY docker/nginx/default.prod.conf /etc/nginx/conf.d/default.conf
 
 # Expondo porta que o Render vai mapear
-EXPOSE 80
+EXPOSE 1000
 
 # Comando de start
 CMD ["/start.sh"]
