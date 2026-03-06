@@ -23,13 +23,10 @@ RUN composer install --no-dev --optimize-autoloader
 RUN npm install
 
 # Copiando start.sh e dando permissão
-COPY start.sh /start.sh
+COPY docker/start.sh /start.sh
 RUN chmod +x /start.sh
 
-# Remove o config padrão
-RUN rm /etc/nginx/conf.d/default.conf
-
-# Copia o config de produção para default.conf
+# Copiando configuração nginx diretamente como default.conf
 COPY docker/nginx/default.prod.conf /etc/nginx/conf.d/default.conf
 
 # Expondo porta que o Render vai mapear
