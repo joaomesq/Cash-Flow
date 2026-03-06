@@ -26,7 +26,10 @@ RUN npm install
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# Copiando configuração nginx
+# Remove o config padrão
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copia o config de produção para default.conf
 COPY docker/nginx/default.prod.conf /etc/nginx/conf.d/default.conf
 
 # Expondo porta que o Render vai mapear
