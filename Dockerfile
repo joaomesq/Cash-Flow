@@ -6,8 +6,11 @@ RUN apt-get update && apt-get install -y \
     git unzip curl libpng-dev libonig-dev libxml2-dev \
     zip libzip-dev npm nginx supervisor
 
-# Extensões PHP necessárias
-RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
+# Instala dependências para PostgreSQL
+RUN apt-get update && apt-get install -y libpq-dev
+
+# Instala extensões PHP necessárias (MySQL, PostgreSQL, etc.)
+RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd zip
 
 # Definindo diretório de trabalho
 WORKDIR /var/www
