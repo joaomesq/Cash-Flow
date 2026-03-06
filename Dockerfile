@@ -23,7 +23,7 @@ RUN composer install --no-dev --optimize-autoloader
 RUN npm install
 
 # Copiando start.sh e dando permissão
-COPY docker/start.sh /start.sh
+COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
 # Copiando configuração nginx
