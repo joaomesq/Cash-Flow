@@ -35,8 +35,11 @@ RUN npm run build
 RUN chown -R www-data:www-data /var/www
 
 # Config nginx
-COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx/default.prod.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=10000
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
