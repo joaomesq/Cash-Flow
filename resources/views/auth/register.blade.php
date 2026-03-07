@@ -47,7 +47,7 @@
                         {{ __('Já tenho uma conta') }}
                     </a>
 
-                    <button class="font-medium bg-cyan-500 text-white hover:bg-gray-200 hover:text-black uppercase rounded p-2 ">
+                    <button class="font-medium bg-cyan-500 text-white hover:bg-gray-200 hover:text-black uppercase rounded p-2 mb-2">
                         {{ __('Registar') }}
                     </button>
                 </div>
