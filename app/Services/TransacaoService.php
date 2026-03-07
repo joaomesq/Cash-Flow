@@ -171,6 +171,7 @@ class TransacaoService{
                 $inicio = now()->subDays(6)->startOfDay();
                 $fim = now()->endOfDay();
                 $formatoData = '%Y-%m-%d'; // Agrupamento diário
+                $formatoDataPgSql = 'YYYY/MM/DD';
                 $formatoLabel = 'd/m';     // Ex: 10/02
                 break;
             
@@ -179,6 +180,7 @@ class TransacaoService{
                 $inicio = now()->startOfMonth();
                 $fim = now()->endOfMonth();
                 $formatoData = '%Y-%m-%d';
+                $formatoDataPgSql = 'YYYY/MM/DD';
                 $formatoLabel = 'd/m';
                 break;
             
@@ -188,6 +190,7 @@ class TransacaoService{
                 $inicio = now()->subYear()->startOfYear();
                 $fim = now();
                 $formatoData = '%Y-%m';    // Agrupamento mensal
+                $formatoDataPgSql = 'YYYY/MM';
                 $formatoLabel = 'M/Y';     // Ex: Jan/2026
                 break;
         }
@@ -203,7 +206,7 @@ class TransacaoService{
             $selectData = DB::raw("strftime('$formatoData', data) as data_agrupada");
         }elseif ($driver === 'pgsql') {
             // PostgreSQL usa TO_CHAR
-            $selectData = DB::raw("TO_CHAR(data, '$formatoData') as data_agrupada");
+            $selectData = DB::raw("TO_CHAR(data, '$formatoDataPgSql') as data_agrupada");
         }else {
             // MySQL/MariaDB usa DATE_FORMAT
             $selectData = DB::raw("DATE_FORMAT(data, '$formatoData') as data_agrupada");
