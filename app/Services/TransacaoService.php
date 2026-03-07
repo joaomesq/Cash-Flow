@@ -190,7 +190,7 @@ class TransacaoService{
                 $inicio = now()->subYear()->startOfYear();
                 $fim = now();
                 $formatoData = '%Y-%m';    // Agrupamento mensal
-                $formatoDataPgSql = 'YYYY/MM';
+                $formatoDataPgSql = 'YYYY/MM/DD';
                 $formatoLabel = 'M/Y';     // Ex: Jan/2026
                 break;
         }
