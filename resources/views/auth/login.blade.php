@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="mt-4 bg-red center gap-2">
-                    <button class="w-full bg-cyan-500 text-white hover:bg-gray-200 hover:text-black uppercase rounded p-2 mb-2">Log in</button>
+                    <button class="w-full font-medium bg-cyan-500 text-white hover:bg-gray-200 hover:text-black uppercase rounded p-2 mb-2">Log in</button>
 
                     <p class="text-center">
                         <a class="text-sm text-black hover:text-gray-500 dark:hover:text-gray-500 uppercase" href="{{ route('register') }}">
