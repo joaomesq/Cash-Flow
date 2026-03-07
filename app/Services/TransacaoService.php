@@ -201,7 +201,10 @@ class TransacaoService{
         if ($driver === 'sqlite') {
             // SQLite usa strftime
             $selectData = DB::raw("strftime('$formatoData', data) as data_agrupada");
-        } else {
+        }elseif ($driver === 'pgsql') {
+            // PostgreSQL usa TO_CHAR
+            $selectData = DB::raw("TO_CHAR(data, '$formatoData') as data_agrupada");
+        }else {
             // MySQL/MariaDB usa DATE_FORMAT
             $selectData = DB::raw("DATE_FORMAT(data, '$formatoData') as data_agrupada");
         }
