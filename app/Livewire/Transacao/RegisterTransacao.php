@@ -23,7 +23,7 @@ class RegisterTransacao extends Component
         'venda'=> "Venda", "transporte"=> "Transporte", "venda"=> "Venda", "formação"=> "Formação", 
         "pagamento"=> "Pagamento", 'despesa-fixa'=> "Despesa fixa", 'despesa-variavel'=> "Despesa variável",
         'investimento'=> "Investimento", 'recebimento'=> "Recebimento", 'gasto-nao-essencial'=> "Gasto não essencial",
-        'outros'=> "Outros",
+        'outros'=> "Outros"
     ];
 
     protected $rules = [
