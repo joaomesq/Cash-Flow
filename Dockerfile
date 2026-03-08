@@ -23,7 +23,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install --no-dev --optimize-autoloader
 
 # Instalando dependências Node
-RUN npm install
+RUN npm ci
+RUN npm run build
 
 # Copiando start.sh e dando permissão
 COPY start.sh /start.sh
