@@ -4,7 +4,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <h3 class="dark:text-gray-300 font-medium text-sm text-gray-500"> <span class="text-xl">Cash - Flow | </span> Olá, Bem-vendo!</h3>
+                    <h3 class="dark:text-gray-300 font-medium text-sm text-gray-500"> <span class="text-xl">Cash - Flow | </span> Olá, Bem-vindo!</h3>
                 </div>
             </div>
 

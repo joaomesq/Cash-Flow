@@ -20,8 +20,8 @@ class RegisterTransacao extends Component
     public $formKey = 0;
 
     public $categorias = [
-        'venda'=> "Venda", "compra"=> "Compra", "pagamento"=> "Pagamento",
-        'despesa-fixa'=> "Despesa fixa", 'despesa-variavel'=> "Despesa variável",
+        'venda'=> "Venda", "transporte"=> "Transporte", "venda"=> "Venda", "formação"=> "Formação", 
+        "pagamento"=> "Pagamento", 'despesa-fixa'=> "Despesa fixa", 'despesa-variavel'=> "Despesa variável",
         'investimento'=> "Investimento", 'recebimento'=> "Recebimento", 'gasto-nao-essencial'=> "Gasto não essencial",
         'outros'=> "Outros",
     ];
