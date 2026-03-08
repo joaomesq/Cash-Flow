@@ -1,6 +1,10 @@
 {
+  "public/img/4.png": {
+    "file": "assets/4-CfxeGRDo.png",
+    "src": "public/img/4.png"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-DR3doYoY.css",
+    "file": "assets/app-CIsl77O6.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
