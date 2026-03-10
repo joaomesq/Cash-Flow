@@ -40,6 +40,21 @@ services:
       - "3306:3306"
     networks:
       - laravel
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: cash_flow-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: cash_flow_postgres
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root_user
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432" # Porta externa 5433 mapeada para a 5432 interna
+    networks:
+      - laravel
     
   node:
     image: node:20-alpine
@@ -57,3 +72,4 @@ networks:
 
 volumes:
   dbdata:
+  pgdata:
