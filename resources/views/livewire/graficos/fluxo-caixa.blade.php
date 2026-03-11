@@ -12,6 +12,10 @@
                     class="px-3 py-1 rounded-md transition-colors {{ $periodo === 'mensal' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300' }}">
                 Mensal
             </button>
+            <button wire:click="setPeriodo('anual')" 
+                    class="px-3 py-1 rounded-md transition-colors {{ $periodo === 'anual' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300' }}">
+                Anual
+            </button>
             <button wire:click="setPeriodo('todo')" 
                     class="px-3 py-1 rounded-md transition-colors {{ $periodo === 'todo' ? 'bg-blue-600 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300' }}">
                 Todo

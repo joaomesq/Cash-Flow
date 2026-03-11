@@ -45,6 +45,8 @@ class FluxoCaixa extends Component
             $formatoLabel = 'd/m';
         }elseif($this->periodo == "todo"){
             $formatoLabel = 'M/Y';
+        }elseif($this->periodo = "anual"){
+            $formatoLabel = 'M/Y';
         } else {
              $formatoLabel = 'd/m';
         }

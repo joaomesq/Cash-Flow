@@ -184,7 +184,14 @@ class TransacaoService{
                 $formatoLabel = 'd/m';
                 break;
             
-            case 'todo':
+            case 'anual':
+                // Ano atual (último ano para não sobrecarregar)
+                $inicio = now()->subYear()->startOfYear();
+                $fim = now();
+                $formatoData = '%Y-%m';    // Agrupamento mensal
+                $formatoDataPgSql = 'YYYY/MM/DD';
+                $formatoLabel = 'M/Y';     // Ex: Jan/2026
+                break;
             default:
                 // Todo o período (último ano para não sobrecarregar)
                 $inicio = now()->subYear()->startOfYear();
