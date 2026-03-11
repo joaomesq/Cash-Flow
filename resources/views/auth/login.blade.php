@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <section class="mt-6 shadow-lg rounded-lg flex flex-col w-[400px] justify-center md:w-[500px] lg:w-[90%] lg:px-12 lg:grid lg:grid-cols-2">
+    <section class="shadow-lg mt-20  rounded-lg flex flex-col w-[400px] justify-center md:w-[500px] lg:w-[90%] lg:px-12 lg:grid lg:grid-cols-2">
         <div class="w-full bg-cyan-500 text-white px-6 py-6 lg:p-8 rounded-t-lg lg:rounded-none lg:rounded-s-lg">
             <h2 class="font-bold text-lg mb-2">Cash Flow - Chanax</h2>
             <p>"Bem-vindo! Aqui você tem o controle da movimentação do seu dinheiro.
@@ -10,7 +10,7 @@
             </p>
         </div>
 
-        <div class="form bg-transparent px-6 py-4">
+        <div class="form bg-white rounded-b-lg px-6 py-4">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="mt-4 bg-red center gap-2">
-                    <button class="w-full font-medium bg-cyan-500 text-white hover:bg-gray-200 hover:text-black uppercase rounded p-2 mb-2">Log in</button>
+                    <button class="w-full font-medium bg-cyan-500 text-white hover:bg-gray-300 hover:text-blackds uppercase rounded p-2 mb-2">Log in</button>
 
                     <p class="text-center">
                         <a class="text-sm text-black hover:text-gray-500 dark:hover:text-gray-500 uppercase" href="{{ route('register') }}">
