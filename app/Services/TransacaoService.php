@@ -162,70 +162,51 @@ class TransacaoService{
      * @param string $periodo[mensal, semanal, todo] - periodo de tempo para o qual queremos os valores, default mensal
      */
     public function dadosGrafico(string $periodo = "mensal"){
+        //Definição de Intervalos e Formatos
+        [$inicio, $fim, $formatoAgrupamento] = match ($periodo) {
+            'semanal' => [now()->subDays(6)->startOfDay(), now()->endOfDay(), 'Y-m-d'],
+            'mensal'  => [now()->startOfMonth(), now()->endOfMonth(), 'Y-m-d'],
+            'anual'   => [now()->subYear()->startOfYear(), now(), 'Y-m'],
+            'todo'    => [null, null, 'Y'], // Sem data de início e fim
+            default   => [now()->subDays(30), now(), 'Y-m-d'],
+        };
+
         $query = Transacao::query()->where('usuario_id', $this->idUser);
 
-        #Definição do intervalo de datas
-        switch ($periodo) {
-            case 'semanal':
-                // Últimos 7 dias
-                $inicio = now()->subDays(6)->startOfDay();
-                $fim = now()->endOfDay();
-                $formatoData = '%Y-%m-%d'; // Agrupamento diário
-                $formatoDataPgSql = 'YYYY/MM/DD';
-                $formatoLabel = 'd/m';     // Ex: 10/02
-                break;
-            
-            case 'mensal':
-                // Mês atual (ou últimos 30 dias se preferir)
-                $inicio = now()->startOfMonth();
-                $fim = now()->endOfMonth();
-                $formatoData = '%Y-%m-%d';
-                $formatoDataPgSql = 'YYYY/MM/DD';
-                $formatoLabel = 'd/m';
-                break;
-            
-            case 'anual':
-                // Ano atual (último ano para não sobrecarregar)
-                $inicio = now()->subYear()->startOfYear();
-                $fim = now();
-                $formatoData = '%Y-%m';    // Agrupamento mensal
-                $formatoDataPgSql = 'YYYY/MM/DD';
-                $formatoLabel = 'M/Y';     // Ex: Jan/2026
-                break;
-            default:
-                // Todo o período (último ano para não sobrecarregar)
-                $inicio = now()->subYear()->startOfYear();
-                $fim = now();
-                $formatoData = '%Y-%m';    // Agrupamento mensal
-                $formatoDataPgSql = 'YYYY/MM/DD';
-                $formatoLabel = 'M/Y';     // Ex: Jan/2026
-                break;
+        //Aplicação CONDICIONAL do filtro de data
+        if ($inicio !== null && $fim !== null) {
+            $query->whereBetween('data', [$inicio, $fim]);
         }
-
-        //Filtrando por data
-        $query->whereBetween('data', [$inicio, $fim]);
-
-        #Agrupamento e Soma (Query Otimizada)
+        
+        //Abstração do Driver de Banco de Dados
         $driver = DB::connection()->getDriverName();
         
-        if ($driver === 'sqlite') {
-            // SQLite usa strftime
-            $selectData = DB::raw("strftime('$formatoData', data) as data_agrupada");
-        }elseif ($driver === 'pgsql') {
-            // PostgreSQL usa TO_CHAR
-            $selectData = DB::raw("TO_CHAR(data, '$formatoDataPgSql') as data_agrupada");
-        }else {
-            // MySQL/MariaDB usa DATE_FORMAT
-            $selectData = DB::raw("DATE_FORMAT(data, '$formatoData') as data_agrupada");
-        }
+        $selectData = match ($driver) {
+            'sqlite' => "strftime(" . match($formatoAgrupamento) {
+                'Y'     => "'%Y'",
+                'Y-m'   => "'%Y-%m'",
+                default => "'%Y-%m-%d'"
+            } . ", data)",
+    
+            'pgsql'  => "TO_CHAR(data, " . match($formatoAgrupamento) {
+                'Y'     => "'YYYY'",
+                'Y-m'   => "'YYYY-MM'",
+                default => "'YYYY-MM-DD'"
+            } . ")",
+            
+            'mysql', 'mariadb' => "DATE_FORMAT(data, " . match($formatoAgrupamento) {
+                'Y'     => "'%Y'",
+                'Y-m'   => "'%Y-%m'",
+                default => "'%Y-%m-%d'"
+            } . ")",
+        };
         
-        return $dadosBrutos = $query->select(
-                $selectData,
-                'tipo',
-                DB::raw('SUM(valor) as total')
-            )
-            ->groupBy('data_agrupada', 'tipo')
-            ->orderBy('data_agrupada')
-            ->get();
+        //Execução da Query
+        return $query->select( DB::raw("$selectData as data_agrupada"),
+                                'tipo',
+                                DB::raw('SUM(valor) as total')
+                            )->groupBy('data_agrupada', 'tipo')
+                            ->orderBy('data_agrupada', 'asc')
+                            ->get();
     }
 }

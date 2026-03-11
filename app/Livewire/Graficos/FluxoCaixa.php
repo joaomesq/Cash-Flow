@@ -43,11 +43,11 @@ class FluxoCaixa extends Component
             $formatoLabel = 'd/m';
         }elseif($this->periodo == "mensal"){
             $formatoLabel = 'd/m';
-        }elseif($this->periodo == "todo"){
+        }elseif($this->periodo == "anual"){
             $formatoLabel = 'M/Y';
-        }elseif($this->periodo = "anual"){
-            $formatoLabel = 'M/Y';
-        } else {
+        } elseif($this->periodo == "todo"){
+            $formatoLabel = 'Y';
+        }else {
              $formatoLabel = 'd/m';
         }
 
@@ -56,8 +56,12 @@ class FluxoCaixa extends Component
 
         // Preencher labels e separar dados temporariamente
         foreach ($dadosBrutos as $dado) {
-            $dataLabel = \Carbon\Carbon::parse($dado->data_agrupada)->format($formatoLabel); // Formata para exibição
-            
+            if($this->periodo != "todo"):
+                $dataLabel = \Carbon\Carbon::parse($dado->data_agrupada)->format($formatoLabel); // Formata para exibição
+            else:
+                $dataLabel = \Carbon\Carbon::createFromFormat('Y', $dado->data_agrupada)->format($formatoLabel);
+            endif;
+
             if (!in_array($dataLabel, $this->labels)) {
                 $this->labels[] = $dataLabel;
             }
