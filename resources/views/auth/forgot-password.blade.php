@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <section class="p-4 px-6 rounded-lg w-[400px] md:w-full">
-        <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+    <section class="p-4 px-6 bg-white rounded-lg w-[400px] md:w-full">
+        <div class="mb-4 text-sm text-gray-600">
             {{ __('Esqueceste a tua senha? Sem crise. Apenas envie o seu email e nós te enviaremos o link para definires uma nova senha.') }}
         </div>
 
@@ -12,8 +12,8 @@
 
             <!-- Email Address -->
             <div>
-                <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <label for="email" class="text-gray-600">{{__("Email")}}</label>
+                <x-text-input id="email" class="block mt-1 w-full bg-transparent dark:bg-transparent text-black dark:text-gray-900" type="email" name="email" placeholder="E-mail" :value="old('email')" required autofocus />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
