@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section class="mt-8 shadow-lg rounded-lg flex flex-col w-[400px] justify-center md:w-[500px] lg:w-[90%] lg:px-12 lg:grid lg:grid-cols-2">
+    <section class="mt-8 shadow-lg rounded-lg flex flex-col w-[400px] justify-center md:w-[500px] lg:w-[90%] lg:ps-[10%] lg:grid lg:grid-cols-2">
         <div class="w-full bg-cyan-500 text-white px-6 py-6 lg:p-8 rounded-t-lg lg:rounded-none lg:rounded-s-lg">
             <h2 class="font-bold text-lg mb-2 mt-2">Cash Flow - Chanax</h2>
             <p>"Junte-se a nós! Aqui você tem o controle da movimentação do seu dinheiro.
@@ -7,7 +7,7 @@
             </p>
         </div>
 
-        <div class="form bg-white rounded-b-lg px-6 py-4">
+        <div class="form bg-white rounded-b-lg lg:rounded-none lg:rounded-e-lg px-6 py-4">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
