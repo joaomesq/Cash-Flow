@@ -21,7 +21,7 @@ class RegisterTransacao extends Component
 
     public $categorias =[
         'venda'=> "Venda", "alimentação"=> "Alimentação", "casa"=> "Casa", "lazer"=> "Lazer", "transporte"=> "Transporte", "venda"=> "Venda", "formação"=> "Formação", 
-        "pagamento"=> "Pagamento", 'despesa-fixa'=> "Despesa fixa", 'despesa-variavel'=> "Despesa variável",
+        'telefone'=> "Telefone", "pagamento"=> "Pagamento", 'despesa-fixa'=> "Despesa fixa", 'despesa-variavel'=> "Despesa variável",
         'investimento'=> "Investimento", 'recebimento'=> "Recebimento", 'gasto-nao-essencial'=> "Gasto não essencial",
         'outros'=> "Outros"
     ];
