@@ -14,7 +14,7 @@
             </button>
         </div>
     </div>
-    
+
     <table class="min-w-full border-t text-gray-900 dark:text-gray-200 divide-y divide-gray-200">
         <tbody class="divide-y divide-gray-200 dark:bg-gray-900 bg-white">
             @if(empty($receitas))
@@ -25,7 +25,7 @@
                 @foreach($receitas as $receita)
                     <tr class="hover:bg-gray-300 dark:hover:bg-gray-800">
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{($filtro === "categoria")? $receita->categoria: $receita->descricao }}</td>
-                        <td class="text-green-600 px-6 py-4 whitespace-nowrap capitalize">+ AO {{$receita->total }}</td>
+                        <td class="text-green-600 px-6 py-4 whitespace-nowrap capitalize">+ AO {{ number_format($receita->total, 2, ',', '.')}}</td>
                     </tr>
                 @endforeach
             @endif

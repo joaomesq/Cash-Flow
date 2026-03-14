@@ -20,7 +20,7 @@
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->descricao }}</td>
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->categoria }}</td>
                         <td class="px-6 py-4 whitespace-nowrap capitalize">{{ $transacao->data }}</td>
-                        <td class="{{ ($transacao->tipo == 'receita')? 'text-green-500': 'text-red-500' }} px-6 py-4 whitespace-nowrap capitalize">AO {{ $transacao->valor }}</td>
+                        <td class="{{ ($transacao->tipo == 'receita')? 'text-green-500': 'text-red-500' }} px-6 py-4 whitespace-nowrap capitalize">AO {{ number_format($transacao->valor, 2, ',', '.') }}</td>
                         <td class="px-6 py-4 whitespace-nowrap capitalize">
                             <livewire:transacao.delete-transacao :id="$transacao->id" wire:key="delelte-item-{{$transacao->id}}"/>
                         </td>

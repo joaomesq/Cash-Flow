@@ -9,10 +9,13 @@ use Livewire\Component;
 class ResumoReceita extends Component
 {
     public $receitas;
+    public $total = 0;
     public $filtro = "categoria";
     
     public function render()
-    {   $this->setReceitas(new TransacaoService(userId: Auth::user()->id));
+    {   
+        $this->setReceitas(new TransacaoService(userId: Auth::user()->id));
+        $this->calcularTotal();
         return view('livewire.transacao.resumo-receita');
     }
 
@@ -22,5 +25,11 @@ class ResumoReceita extends Component
 
     public function alterarFiltro(string $filtro = "categoria"){
         $this->filtro = $filtro;
+    }
+    
+    private function calcularTotal(){
+        foreach ($this->receitas as $receita) {
+            $this->total += $receita->total;
+        }
     }
 }
