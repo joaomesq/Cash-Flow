@@ -5,7 +5,7 @@
 
         <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
             <x-secondary-button>
-                    {{ __('Log Out') }}
+                    {{ __('Sair') }}
             </x-secondary-button>
         </x-responsive-nav-link>
     </form>
