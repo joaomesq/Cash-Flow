@@ -1,7 +1,7 @@
 <div>
     <button wire:click="delete()" 
         type="button" 
-        class="text-red-600 hover:text-red-900 transition-colors duration-200 p-2 rounded-md hover:bg-red-50"
+        class="text-red-600 hover:text-red-900 dark:text-gray-300 transition-colors duration-200 p-2 rounded-md hover:bg-red-50 dark:hover:bg-gray-700 dark:hover:text-red-600"
         title="Eliminar Transação">
         
         <svg xmlns="http://www.w3.org" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
