@@ -16,5 +16,4 @@
             @endif
         </tbody>
     </table>
-    </div>
 </section>

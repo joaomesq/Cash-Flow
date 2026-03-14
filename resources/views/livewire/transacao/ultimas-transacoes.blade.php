@@ -1,4 +1,4 @@
-<section class="p-2 overflow-x-auto  bg-white dark:bg-transparent border rounded-lg shadow-lg dark:border-gray-400">
+<section class="p-2 overflow-x-auto bg-white dark:bg-transparent border rounded-lg shadow-lg dark:border-gray-400">
     <h2 class="font-semibold text-lg dark:text-gray-200 mb-2">Transações Recentes</h2>
     <table class="min-w-full border-t text-gray-900 dark:text-gray-200 divide-y divide-gray-200">
         <tbody class="divide-y divide-gray-200 dark:bg-gray-900 bg-white">
@@ -17,5 +17,4 @@
             @endif
         </tbody>
     </table>
-    </div>
 </section>
