@@ -9,6 +9,7 @@ use Livewire\Component;
 class ResumoReceita extends Component
 {
     public $receitas;
+    public $filtro = "categoria";
     
     public function render()
     {   $this->setReceitas(new TransacaoService(userId: Auth::user()->id));
@@ -16,6 +17,10 @@ class ResumoReceita extends Component
     }
 
     public function setReceitas(TransacaoService $transacaoService){
-        $this->receitas = $transacaoService->resumoTransacoes(tipo: 'receita', coluna: "categoria", periodo: 'todo');
+        $this->receitas = $transacaoService->resumoTransacoes(tipo: 'receita', coluna: strtolower($this->filtro), periodo: 'todo');
+    }
+
+    public function alterarFiltro(string $filtro = "categoria"){
+        $this->filtro = $filtro;
     }
 }
