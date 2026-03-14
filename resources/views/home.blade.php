@@ -25,7 +25,8 @@
         <livewire:graficos.fluxo-caixa />
     </section>
 
-    <section class="transacoes-recentes px-4 mt-4">
+    <section class="transacoes-recentes grid grid-cols-2 px-4 mt-4">
         <livewire:transacao.ultimas-transacoes />
+        <livewire:transacao.resumo-receita />
     </section>
 </x-app-layout>
