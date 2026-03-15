@@ -25,7 +25,7 @@
         <livewire:graficos.fluxo-caixa />
     </section>
 
-    <section class="px-4 mt-6 grid lg:grid-cols-2 gap-2">
+    <section class="px-4 mt-6 grid lg:grid-cols-2 gap-4">
         <div>
             <livewire:transacao.resumo-receita />
         </div>
