@@ -25,12 +25,12 @@
         <livewire:graficos.fluxo-caixa />
     </section>
 
-    <section class="px-4 mt-4 grid grid-cols-2 gap-2">
+    <section class="px-4 mt-6 grid grid-cols-2 gap-2">
         <div>
             <livewire:transacao.resumo-receita />
         </div>
         <div>
-            <livewire:transacao.ultimas-transacoes />
+            <livewire:transacao.resumo-despesa />
         </div>
     </section>
 </x-app-layout>

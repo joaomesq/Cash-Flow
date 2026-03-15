@@ -122,7 +122,7 @@ class TransacaoService{
             
             case 'todo':
                 return Transacao::query()->select($coluna, DB::raw("SUM(valor) as total"))->where('usuario_id', $this->idUser)
-                            ->where('tipo', $tipo)->groupby($coluna)->orderBy($coluna)->get();
+                            ->where('tipo', $tipo)->groupby($coluna)->orderBy($coluna)->paginate(7);
 
             default:
                 return False;

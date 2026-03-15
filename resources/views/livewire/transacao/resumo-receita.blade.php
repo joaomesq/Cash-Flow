@@ -31,4 +31,5 @@
             @endif
         </tbody>
     </table>
+    {{$receitas->links()}}
 </section>

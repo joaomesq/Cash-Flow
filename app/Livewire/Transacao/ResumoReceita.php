@@ -5,30 +5,31 @@ namespace App\Livewire\Transacao;
 use App\Services\TransacaoService;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ResumoReceita extends Component
 {
-    public $receitas;
+    use WithPagination;    
+
     public $total = 0;
     public $filtro = "categoria";
     
     public function render()
     {   
-        $this->setReceitas(new TransacaoService(userId: Auth::user()->id));
-        $this->calcularTotal();
-        return view('livewire.transacao.resumo-receita');
+        $receitas = $this->setReceitas(new TransacaoService(userId: Auth::user()->id));
+        return view('livewire.transacao.resumo-receita', compact('receitas'));
     }
 
     public function setReceitas(TransacaoService $transacaoService){
-        $this->receitas = $transacaoService->resumoTransacoes(tipo: 'receita', coluna: strtolower($this->filtro), periodo: 'todo');
+        return $transacaoService->resumoTransacoes(tipo: 'receita', coluna: strtolower($this->filtro), periodo: 'todo');
     }
 
     public function alterarFiltro(string $filtro = "categoria"){
         $this->filtro = $filtro;
     }
     
-    private function calcularTotal(){
-        foreach ($this->receitas as $receita) {
+    private function calcularTotal(array $receitas){
+        foreach ($receitas as $receita) {
             $this->total += $receita->total;
         }
     }
