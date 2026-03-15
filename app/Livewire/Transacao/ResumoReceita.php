@@ -21,7 +21,7 @@ class ResumoReceita extends Component
     }
 
     public function setReceitas(TransacaoService $transacaoService){
-        return $transacaoService->resumoTransacoes(tipo: 'receita', coluna: strtolower($this->filtro), periodo: 'todo');
+        return $transacaoService->resumoTransacoes(tipo: 'receita', limite: 5, coluna: strtolower($this->filtro), periodo: 'todo');
     }
 
     public function alterarFiltro(string $filtro = "categoria"){

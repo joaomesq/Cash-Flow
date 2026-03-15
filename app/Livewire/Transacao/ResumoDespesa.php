@@ -22,7 +22,7 @@ class ResumoDespesa extends Component
     }
 
     public function setDespesas(TransacaoService $transacaoService){
-        return $transacaoService->resumoTransacoes(tipo: 'despesa', coluna: strtolower($this->filtro), periodo: 'todo');
+        return $transacaoService->resumoTransacoes(tipo: 'despesa', limite: 5, coluna: strtolower($this->filtro), periodo: 'todo');
     }
 
     public function alterarFiltro(string $filtro = "categoria"){
