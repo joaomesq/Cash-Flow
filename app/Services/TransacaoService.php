@@ -84,8 +84,9 @@ class TransacaoService{
      * @param string $coluna [descricao, categoria] - determina se os valoes devem ser baseado em categoria ou descricao
      * @param string $periodo - permite define o periodo de tempo para o qual queremos os valores, default mensal
      * @param int|null $ano, $mes, $dia - permite definir o filtro do periodo escolhido, valor default é null
+     * @param int $limite - usado para paginação, limitando o número de resultados pegos de uma vez
     */
-    public function resumoTransacoes(string $tipo, string $coluna = 'descricao', int|null $ano = null, int|null $mes = null, int|null $dia = null, string $periodo = "mensal"){
+    public function resumoTransacoes(string $tipo, string $coluna = 'descricao', int|null $ano = null, int|null $mes = null, int|null $dia = null, string $periodo = "mensal", int $limite = 7){
         //checar coluna && tipo
         $coluna = ( $coluna != 'descricao') ? 'categoria' : $coluna ;
         $tipo = ( $tipo != 'receita' ) ? 'despesa': $tipo;
@@ -97,7 +98,7 @@ class TransacaoService{
                 endif;
                 return Transacao::query()->select($coluna, DB::raw("SUM(valor) as total"))->whereYear('data', $ano)
                             ->whereMonth('data', $mes)->whereDay('data', $dia)->where('usuario_id', $this->idUser)
-                            ->where('tipo', $tipo)->groupBy($coluna)->orderBy($coluna)->get();
+                            ->where('tipo', $tipo)->groupBy($coluna)->orderBy($coluna)->paginate($limite);
                 break;
             
             case 'mensal':
@@ -107,7 +108,7 @@ class TransacaoService{
 
                 return Transacao::query()->select($coluna, DB::raw("SUM(valor) as total"))
                             ->whereYear('data', $ano)->whereMonth('data', $mes)->where('usuario_id', $this->idUser)
-                            ->where('tipo', $tipo)->groupBy($coluna)->orderBy($coluna)->get();
+                            ->where('tipo', $tipo)->groupBy($coluna)->orderBy($coluna)->paginate($limite);
                 break;
             
             case 'anual':
@@ -117,12 +118,12 @@ class TransacaoService{
 
                 return Transacao::query()->select($coluna, DB::raw("SUM(valor) as total"))
                             ->whereYear('data', $ano)->where('usuario_id', $this->idUser)->where('tipo', $tipo)
-                            ->groupBy($coluna)->orderBy($coluna)->get();
+                            ->groupBy($coluna)->orderBy($coluna)->paginate($limite);
                 break;
             
             case 'todo':
                 return Transacao::query()->select($coluna, DB::raw("SUM(valor) as total"))->where('usuario_id', $this->idUser)
-                            ->where('tipo', $tipo)->groupby($coluna)->orderBy($coluna)->paginate(7);
+                            ->where('tipo', $tipo)->groupby($coluna)->orderBy($coluna)->paginate($limite);
 
             default:
                 return False;
